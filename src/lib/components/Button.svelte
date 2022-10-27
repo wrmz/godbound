@@ -37,7 +37,7 @@
         padding: 10px 15px;
         font-family: var(--font-disprlay);
         font-weight: 300;
-        font-size: 22px;
+        font-size: 1em;
         letter-spacing: 0.05em;
         /* text-transform: uppercase; */
         text-decoration: none;
