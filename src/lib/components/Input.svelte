@@ -41,18 +41,18 @@
     font-weight: 300;
     color: var(--text-color-bk-tan);
     border-radius: 3px;
-    border: 1px solid var(--color-yellow);
+    border: 1px solid var(--color-tan);
     background-color: white;
     transition: background-color var(--transition), border-color var(--transition), outline-color var(--transition), color var(--transition);
 }
 .field__input::placeholder {
-    color: rgba(var(--color-orange-rgb), 0.8);
+    color: rgba(var(--color-brown-rgb), 0.8);
 }
 .field__input:focus {
     outline: 0;
     border-color: var(--color-dark);
 }
 .field__input:focus::placeholder {
-    color: rgba(var(--color-blue-rgb), 0.4);
+    color: rgba(var(--color-black-rgb), 0.4);
 }
 </style>

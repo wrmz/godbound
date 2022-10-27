@@ -38,33 +38,31 @@
 
         /** Fonts */
         --font-display: 'RunistaDecorative', 'RunistaSymbols', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+        --font-symbol: 'RunistaSymbols', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
         --font-rune: 'Primitive', 'RunistaDecorative', 'RunistaSymbols', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
         --font-copy: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
         /** Palette */
-        --color-red: #d62828;
-        --color-red-rgb: 214, 40, 40;
-        --color-blue: #003049;
-        --color-blue-rgb: 0, 48, 73;
-        --color-orange: #f77f00;
-        --color-orange-rgb: 247, 127, 0;
-        --color-yellow: #fcbf49;
-        --color-yellow-rgb: 252, 191, 73;
-        --color-tan: #eae2b7;
-        --color-tan-rgb: 234, 226, 183;
+        --color-black: #0a0908;
+        --color-black-rgb: 10, 9, 8;
+        --color-gray: #22333b;
+        --color-gray-rgb: 34, 51, 59;
+        --color-tan: #eae0d5;
+        --color-tan-rgb: 234, 224, 213;
+        --color-brown: #5e503f;
+        --color-brown-rgb: 94, 80, 63;
 
-        --color-dark: #0a151b;
-        --color-dark-rgb: 10, 21, 27;
-        --color-light: white;
-        --color-light-rgb: 255, 255, 255;
+        --color-dark: var(--color-black);
+        --color-dark-rgb: var(--color-black-rgb);
+        --color-light: var(--color-tan);
+        --color-light-rgb: var(--color-tan-rgb);
 
         --text-color-bk-light: var(--color-dark);
         --text-color-bk-dark: var(--color-light);
-        --text-color-bk-red: var(--color-light);
-        --text-color-bk-blue: var(--color-light);
-        --text-color-bk-yellow: var(--color-dark);
-        --text-color-bk-orange: var(--color-light);
+        --text-color-bk-black: var(--color-light);
+        --text-color-bk-gray: var(--color-light);
         --text-color-bk-tan: var(--color-dark);
+        --text-color-bk-brown: var(--color-light);
 
         /** Transitions & Animations */
         --transition-duration: 0.18s;
@@ -78,8 +76,9 @@
         font-weight: 300;
         line-height: 1;
         min-height: 100vh;
-        color: var(--color-dark);
+        color: var(--color-gray);
         background-color: white;
+        font-smooth: always;
     }
     :global(body *) {
         box-sizing: border-box;

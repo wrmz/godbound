@@ -54,7 +54,6 @@
         left: 0;
         width: calc(100% + 2px);
         height: calc(100% + 2px);
-        mix-blend-mode: multiply;
         opacity: 0;
         filter: blur(3px);
         z-index: -1;
@@ -62,21 +61,20 @@
         transition: opacity var(--transition), filter var(--transition);
     }
     .button:hover::before {
-        opacity: 0.6;
         filter: blur(0);
+        opacity: 1;
     }
 
     /** Default Buttons */
     .button--default {
-        color: white;
-        background: var(--color-blue);
+        color: var(--color-dark);
+        background: transparent;
     }
     .button--default::before {
-        background: var(--color-blue);
+        background: var(--color-brown);
     }
     .button--default:hover::before {
-        opacity: 0.4;
-        filter: blur(0);
+        opacity: 0.1;
     }
     /** Non-keyboard focus */
     .button--default:focus:not(:focus-visible) {
@@ -91,44 +89,50 @@
 
     /** Low priority buttons */
     .button--low {
-        color: var(--text-color-bk-tan);
-        background: var(--color-tan);
+        color: var(--text-color-bk-black);
+        background: var(--color-black);
     }
     .button--low::before {
-        background: var(--color-yellow);
+        background: var(--color-gray);
     }
     /** Non-keyboard focus */
     .button--low:focus:not(:focus-visible) {
-        outline: 1px solid var(--text-color-bk-tan);
+        outline: 1px solid var(--text-color-bk-light);
     }
     /** Keyboard focus */
     .button--low:focus-visible {
         outline: 1px solid var(--text-color-bk-dark);
-        border: 1px solid var(--text-color-bk-tan);
+        border: 1px solid var(--text-color-bk-light);
     }
 
 
     .button--medium {
-        color: var(--text-color-bk-orange);
-        background: var(--color-orange);
+        color: var(--text-color-bk-tan);
+        background: var(--color-tan);
     }
     .button--medium::before {
-        background: var(--color-orange);
+        background: var(--color-tan);
+    }
+    .button--medium::before {
+        background: var(--color-brown);
+    }
+    .button--medium:hover::before {
+        opacity: 0.1;
     }
 
     .button--high {
-        color: var(--text-color-bk-red);
-        background: var(--color-red);
+        color: var(--text-color-bk-gray);
+        background: var(--color-gray);
     }
-    .button--medium::before {
-        background: var(--color-red);
+    .button--high::before {
+        background: var(--color-gray);
     }
 
     .button--em {
-        color: var(--text-color-bk-yellow);
-        background: var(--color-yellow);
+        color: var(--text-color-bk-tan);
+        background: var(--color-tan);
     }
     .button--em::before {
-        background: var(--color-yellow);
+        background: var(--color-tan);
     }
 </style>

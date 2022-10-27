@@ -1,42 +1,16 @@
 <script>
     import { page } from '$app/stores';
-    import { goto } from '$app/navigation';
     import Button from '$lib/components/Button.svelte';
     import Logo from '$lib/components/Logo.svelte';
 
-    async function handleSignOut(event) {
-        console.log('signing out', event);
-        const res = await fetch('auth/logout', {
-            method: 'DELETE',
-            body: JSON.stringify({
-                email: $page.data.user.email
-            })
-        });
-        const data = await res.json();
-
-        $page.data.user = {
-            authenticated: false,
-            username: '',
-            email: '',
-        }
-
-        if (res.ok) {
-            await goto('/sign-in');
-        }
-
-    }
-
-    console.log('data:', $page.data);
-
     export const username = $page.data.user?.username;
     export const authenticated = $page.data.user?.authenticated;
-
 </script>
 
 <header class="header">
     <nav class="header__nav">
         <div class="header__column">
-            <a href="/protected" class="header__logo {authenticated ? 'header__logo--authenticated' : ''}">
+            <a href="/" class="header__logo {authenticated ? 'header__logo--authenticated' : ''}">
                 <span class="header__logo-svg"><Logo class="header__logo-svg" /></span>
                 {#if authenticated}
                     <span class="header__logo-user">{username}</span>
@@ -46,10 +20,10 @@
         <div class="header__column">
             {#if authenticated}
                 <form method="POST" action="/sign-out"><Button type="submit">Sign Out</Button></form>
-                <Button href="/protected" target="_blank" priority="low">Dashboard</Button>
+                <Button href="/protected" target="_blank">Dashboard</Button>
             {:else}
-                <Button href="/sign-in" class="all-caps header__button" priority="low">Sign In</Button>
-                <Button href="/sign-up" class="all-caps header__button" priority="high">Sign Up</Button>
+                <Button href="/sign-in" class="all-caps header__button">Sign In</Button>
+                <Button href="/sign-up" class="all-caps header__button">Sign Up</Button>
             {/if}
         </div>
     </nav>
@@ -57,8 +31,23 @@
 
 <style>
     .header {
-        background: var(--color-blue);
-        box-shadow: 0 0 20px rgba(var(--color-blue), 0.5);
+        position: sticky;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--color-tan);
+        box-shadow: 0 0 20px rgba(var(--color-tan), 0.5);
+    }
+    .header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: calc(100% - 50px);
+        height: 0.5px;
+        border-radius: 1px;
+        background-color: var(--color-brown);
+        transform: translateX(-50%);
     }
     .header__nav {
         display: grid;
@@ -84,7 +73,7 @@
         font-family: var(--font-rune);
         font-size: 1rem;
         text-align: center;
-        color: white;
+        color: var(--color-brown);
     }
     .header__logo-svg,
     .header__logo-user {
