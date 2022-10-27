@@ -65,7 +65,7 @@
         --text-color-bk-brown: var(--color-light);
 
         /** Transitions & Animations */
-        --transition-duration: 0.18s;
+        --transition-duration: 0.12s;
         --transition-ease: ease-out;
         --transition: var(--transition-duration) var(--transition-ease);
     }

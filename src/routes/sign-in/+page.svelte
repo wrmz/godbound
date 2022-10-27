@@ -17,8 +17,8 @@
                 {/if}
                 <form id="signin" method="POST">
                     <div class="form__fields">
-                        <Input label='Enter Your Email' id='email' type='email' bind:value={email} name='email' required />
-                        <Input label='Enter Your Password' id='password' type='password' bind:value={password} name='password' required />
+                        <Input label='Email' id='email' type='email' bind:value={email} name='email' required />
+                        <Input label='Password' id='password' type='password' bind:value={password} name='password' required />
                     </div>
                 </form>
             </div>

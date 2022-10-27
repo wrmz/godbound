@@ -35,34 +35,27 @@
         justify-content: center;
         gap: 8px;
         padding: 10px 15px;
-        font-family: var(--font-display);
+        font-family: var(--font-disprlay);
+        font-weight: 300;
         font-size: 22px;
         letter-spacing: 0.05em;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         text-decoration: none;
-        outline: 1px solid transparent;
-        border: 1px solid transparent;
+        border: 0.5px solid transparent;
+        box-shadow: 0 0 0 0.5px transparent;
         border-radius: 3px;
         overflow: hidden;
-        transition: filter var(--transition), border-color var(--transition), outline var(--transition), background-color var(--transition);
+        transition: border var(--transition), background-color var(--transition), color var(--transition), box-shadow var(--transition);
         z-index: 1;
     }
-    .button::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
-        opacity: 0;
-        filter: blur(3px);
-        z-index: -1;
-        transform: translate(-1px, -1px);
-        transition: opacity var(--transition), filter var(--transition);
+
+    .button:focus:not(:focus-visible) {
+        outline: 0;
     }
-    .button:hover::before {
-        filter: blur(0);
-        opacity: 1;
+    .button:focus-visible {
+        outline: 0;
+        border: 1px solid var(--color-light);
+        box-shadow: 0 0 0 1px var(--color-dark);
     }
 
     /** Default Buttons */
@@ -70,20 +63,12 @@
         color: var(--color-dark);
         background: transparent;
     }
-    .button--default::before {
-        background: var(--color-brown);
-    }
-    .button--default:hover::before {
-        opacity: 0.1;
-    }
     /** Non-keyboard focus */
     .button--default:focus:not(:focus-visible) {
-        outline: 1px solid transparent;
         border: 1px solid transparent;
     }
     /** Keyboard focus */
     .button--default:focus-visible {
-        outline: 1px solid var(--text-color-bk-light);
         border: 1px solid var(--text-color-bk-dark);
     }
 
@@ -92,39 +77,24 @@
         color: var(--text-color-bk-black);
         background: var(--color-black);
     }
-    .button--low::before {
-        background: var(--color-gray);
-    }
-    /** Non-keyboard focus */
-    .button--low:focus:not(:focus-visible) {
-        outline: 1px solid var(--text-color-bk-light);
-    }
-    /** Keyboard focus */
-    .button--low:focus-visible {
-        outline: 1px solid var(--text-color-bk-dark);
-        border: 1px solid var(--text-color-bk-light);
-    }
 
 
     .button--medium {
-        color: var(--text-color-bk-tan);
-        background: var(--color-tan);
+        color: var(--text-color-bk-dark);
+        border-color: var(--text-color-bk-dark);
+        background-color: transparent;
     }
-    .button--medium::before {
-        background: var(--color-tan);
+    .button--medium:hover {
+        box-shadow: 0 0 0 0.5px var(--text-color-bk-dark);
     }
-    .button--medium::before {
-        background: var(--color-brown);
+    .button--medium:hover,
+    .button--medium:focus-visible {
+        background-color: rgba(var(--color-dark-rgb), 0.1);
     }
-    .button--medium:hover::before {
-        opacity: 0.1;
-    }
+
 
     .button--high {
         color: var(--text-color-bk-gray);
-        background: var(--color-gray);
-    }
-    .button--high::before {
         background: var(--color-gray);
     }
 

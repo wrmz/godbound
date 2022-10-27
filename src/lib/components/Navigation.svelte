@@ -36,7 +36,6 @@
         left: 0;
         width: 100%;
         background: var(--color-tan);
-        box-shadow: 0 0 20px rgba(var(--color-tan), 0.5);
     }
     .header::after {
         content: '';

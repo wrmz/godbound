@@ -62,43 +62,21 @@
         align-items: center;
         justify-content: center;
         height: 175px;
-        color: var(--text-color-bk-gray);
+        color: var(--text-color-bk-brown);
         border-radius: 2px 2px 0 0;
-        background: var(--color-gray);
-        filter: drop-shadow(0 10px 20px rgba(var(--color-brown-rgb), 0.3));
+        background: var(--color-brown);
     }
-    .callout__header::before,
-    .callout__header::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 175px;
-        background: rgba(var(--color-gray-rgb), 0.8);
-    }
-    .callout__header::before {
-        right: 100%;
-        border-radius: 0 0 2px 0;
-        transform: translateY(20px) skewY(-7deg);
-    }
-    .callout__header::after {
-        left: 100%;
-        border-radius: 0 0 0 2px;
-        transform: translateY(20px) skewY(7deg);
-    }
-
 
     .callout__content {
         display: grid;
         grid-template-columns: max-content 1fr;
         gap: 30px;
-        margin: 0 20px;
-        padding: 100px;
+        padding: 40px;
         font-size: 18px;
         line-height: 1.8;
         text-align: left;
         text-indent: 1.5em;
-        background: white;
-        box-shadow: 0 0 10px rgba(var(--color-brown-rgb), 0.1);
+        box-shadow: -0.5px 0 0 0 var(--color-brown) inset, 0.5px 0 0 0 var(--color-brown) inset;
     }
     .callout__content--single {
         grid-template-columns: unset;
@@ -120,33 +98,16 @@
     .callout__footer {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(2, minmax(max-content, 25%));
+        grid-auto-flow: column dense;
+        grid-auto-columns: minmax(25%, 1fr);
         justify-content: center;
         align-items: center;
-        gap: 40px;
-        height: 170px;
-        padding: 0 60px;
+        gap: 30px;
+        padding: 30px;
         border-radius: 0 0 2px 2px;
-        background: var(--color-gray);
+        background: var(--color-brown);
     }
-    .callout__footer::before,
-    .callout__footer::after {
-        content: '';
-        position: absolute;
-        width: 80px;
-        height: 100%;
-        background: rgba(var(--color-gray-rgb), 0.8);
-    }
-    .callout__footer::before {
-        right: 100%;
-        border-radius: 0 0 2px 0;
-        transform: translateY(-20px) skewY(7deg);
-    }
-    .callout__footer::after {
-        left: 100%;
-        border-radius: 0 0 0 2px;
-        transform: translateY(-20px) skewY(-7deg);
-    }
+
     .callout__content-figcaption {
         position: absolute;
         display: flex;
