@@ -21,7 +21,6 @@
         padding: 26px 30px;
         font-family: var(--font-display);
         font-size: 1.25em;
-        font-weight: normal;
         text-align: center;
         text-transform: uppercase;
         line-height: 1;
@@ -37,6 +36,7 @@
         margin: 0 0.05em;
         font-size: 3em;
         font-style: normal;
+        font-weight: 300;
         text-transform: none;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;

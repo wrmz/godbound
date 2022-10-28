@@ -21,32 +21,17 @@
             {#if authenticated}
                 <form method="POST" action="/sign-out"><Button type="submit">Sign Out</Button></form>
                 <Button href="/protected" target="_blank">Dashboard</Button>
-            {:else}
-                <Button href="/sign-in" class="all-caps header__button">Sign In</Button>
-                <Button href="/sign-up" class="all-caps header__button">Sign Up</Button>
             {/if}
         </div>
     </nav>
 </header>
-
 <style>
     .header {
         position: sticky;
         top: 0;
         left: 0;
         width: 100%;
-        background: var(--color-tan);
-    }
-    .header::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: calc(100% - 50px);
-        height: 0.5px;
-        border-radius: 1px;
-        background-color: var(--color-brown);
-        transform: translateX(-50%);
+        background: var(--color-gray);
     }
     .header__nav {
         display: grid;
@@ -72,7 +57,7 @@
         font-family: var(--font-rune);
         font-size: 1rem;
         text-align: center;
-        color: var(--color-brown);
+        color: var(--text-color-bk-dark);
     }
     .header__logo-svg,
     .header__logo-user {

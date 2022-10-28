@@ -28,6 +28,5 @@
         min-height: calc(100vh - var(--nav-height));
         padding: 0 100px;
         text-align: center;
-        background: var(--color-tan);
     }
 </style>

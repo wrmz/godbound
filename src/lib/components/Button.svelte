@@ -39,7 +39,6 @@
         font-weight: 300;
         font-size: 1em;
         letter-spacing: 0.05em;
-        /* text-transform: uppercase; */
         text-decoration: none;
         border: 0.5px solid transparent;
         box-shadow: 0 0 0 0.5px transparent;
