@@ -48,7 +48,7 @@
         left: 50%;
         height: 1px;
         border-radius: 2px;
-        background: var(--text-color-bk-dark);
+        background: var(--color-foreground);
         transform: translateX(-50%);
     }
     .heading em::before {
