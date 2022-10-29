@@ -46,8 +46,12 @@
         border: 1px solid transparent;
         box-shadow: inset 0 0 0 1px transparent;
         border-radius: 3px;
+        background: var(--color-3);
         overflow: hidden;
         transition: border var(--transition), background-color var(--transition), color var(--transition), box-shadow var(--transition);
+    }
+    .button:hover {
+        background: var(--color-2);
     }
 
     .button:focus:not(:focus-visible) {
