@@ -39,27 +39,30 @@
     font-family: var(--font-copy);
     font-size: 1.125rem;
     font-weight: 300;
-    color: var(--text-color-bk-tan);
+    color: var(--color-foreground);
     border-radius: 2px;
-    border: 0.5px solid var(--color-brown);
-    background-color: var(--color-tan);
-    box-shadow: 0 0 0 0.5px transparent;
+    border: 1px solid var(--color-1);
+    background: var(--color-2);
+    box-shadow: 0 0 0 1px transparent;
     transition: background-color var(--transition), border-color var(--transition), outline-color var(--transition), color var(--transition), box-shadow var(--transition);
 }
 .field__input::placeholder {
-    font-size: 1rem;
-    text-transform: uppercase;
-    color: rgba(var(--color-brown-rgb), 0.7);
+    color: var(--color-6);
+    transition: color var(--transition);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.field__input:focus::placeholder {
+    color: var(--color-5);
+}
 .field__input:focus {
     outline: 0;
-    border-color: var(--color-dark);
-    box-shadow: 0 0 0 0.5px var(--color-dark);
-    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-0);
+    background: var(--color-1);
 }
-.field__input:focus::placeholder {
-    color: rgba(var(--color-black-rgb), 0.4);
+
+.field__input:focus-visible {
+    outline: 0;
 }
+
 </style>
