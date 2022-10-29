@@ -34,18 +34,20 @@
         align-items: center;
         justify-content: center;
         gap: 8px;
-        padding: 10px 15px;
-        font-family: var(--font-disprlay);
-        font-weight: 300;
-        font-size: 1em;
-        letter-spacing: 0.05em;
+        height: 50px;
+        margin: 0;
+        padding: 0 20px;
+        font-family: var(--font-display);
+        font-size: 1.25em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
         text-decoration: none;
-        border: 0.5px solid transparent;
-        box-shadow: 0 0 0 0.5px transparent;
+        color: var(--color-foreground);
+        border: 1px solid transparent;
+        box-shadow: inset 0 0 0 1px transparent;
         border-radius: 3px;
         overflow: hidden;
         transition: border var(--transition), background-color var(--transition), color var(--transition), box-shadow var(--transition);
-        z-index: 1;
     }
 
     .button:focus:not(:focus-visible) {
@@ -53,44 +55,26 @@
     }
     .button:focus-visible {
         outline: 0;
-        border: 1px solid var(--color-light);
-        box-shadow: 0 0 0 1px var(--color-dark);
+        border: 1px solid rgba(var(--color-6-rgb, 0.5));
+        box-shadow: inset 0 0 0 1px rgba(var(--color-0-rgb), 0.5);
     }
 
-    /** Default Buttons */
-    .button--default {
-        color: var(--color-dark);
-        background: transparent;
-    }
-    /** Non-keyboard focus */
-    .button--default:focus:not(:focus-visible) {
-        border: 1px solid transparent;
-    }
-    /** Keyboard focus */
-    .button--default:focus-visible {
-        border: 1px solid var(--text-color-bk-dark);
-    }
 
     /** Low priority buttons */
     .button--low {
         color: var(--text-color-bk-black);
         background: var(--color-black);
     }
-
-
     .button--medium {
-        color: var(--text-color-bk-dark);
-        border-color: var(--text-color-bk-dark);
-        background-color: transparent;
+        background-color: var(--color-2);
     }
     .button--medium:hover {
-        box-shadow: 0 0 0 0.5px var(--text-color-bk-dark);
+        border-color: var(--color-1);
     }
     .button--medium:hover,
     .button--medium:focus-visible {
-        background-color: rgba(var(--color-dark-rgb), 0.1);
+        background-color: var(--color-1);
     }
-
 
     .button--high {
         color: var(--text-color-bk-gray);
