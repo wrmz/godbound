@@ -4,16 +4,16 @@
 
 <menu class='menu'>
     <li class='menu__item'>
-        <Button href='./campaigns' class='menu__button'>Campaigns</Button>
+        <Button href='/protected/campaigns' class='menu__button'>Campaigns</Button>
     </li>
     <li class='menu__item'>
-        <Button href='./characters' class='menu__button'>Characters</Button>
+        <Button href='/protected/characters' class='menu__button'>Characters</Button>
     </li>
     <li class='menu__item'>
-        <Button href='./profile' class='menu__button'>Profile</Button>
+        <Button href='/protected/profile' class='menu__button'>Profile</Button>
     </li>
     <li class='menu__item'>
-        <Button href='./account' class='menu__button'>Account</Button>
+        <Button href='/protected/account' class='menu__button'>Account</Button>
     </li>
 </menu>
 

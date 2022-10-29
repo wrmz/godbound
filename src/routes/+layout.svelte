@@ -584,6 +584,9 @@
         height: auto;
         margin: 0;
     }
+    :global(p, li) {
+        line-height: 2;
+    }
 
     /** Typography */
     :global(.all-caps) {
