@@ -53,23 +53,53 @@
         --color-transparent: #00000000;
 
         --color-yellow: #ffed72;
+        --color-yellow-rgb: 255, 237, 114;
         --color-orange: #ffb270;
+        --color-orange-rgb: 255, 178, 112;
         --color-red: #ff6d7e;
+        --color-red-rgb: 255, 109, 126;
         --color-green: #a2e57b;
+        --color-green-rgb: 162, 229, 123;
         --color-blue: #7cd5f1;
+        --color-blue-rgb: 124, 213, 241;
         --color-purple: #baa0f8;
+        --color-purple-rgb: 186, 160, 248;
 
+        /** Eerie Black */
         --color-0: #161b1e;
+        --color-0-rgb: 22, 27, 30;
+
+        /** Dark Gunmetal */
         --color-1: #1d2528;
+        --color-1-rgb: 29, 37, 40;
+
+        /** Oxford Blue */
         --color-2: #273136;
+        --color-2-rgb: 39, 49, 54;
+
+        /** Arsenic */
         --color-3: #3a4449;
+        --color-3-rgb: 58, 68, 73;
+
+        /** River Bed */
         --color-4: #545f62;
+        --color-4-rgb: 84, 95, 98;
+
+        /** Rolling Stone */
         --color-5: #6b7678;
+        --color-5-rgb: 107, 118, 120;
+
+        /** Submarine */
         --color-6: #8b9798;
+        --color-6-rgb: 139, 151, 152;
+
+        /** Nebula */
         --color-7: #b8c4c3;
+        --color-7-rgb: 184, 196, 195;
+
+        /** Azure */
         --color-8: #f2fffc;
-
-
+        --color-8-rgb: 242, 255, 252;
 
         --color-activity-bar-active-focus-border: var(--color-yellow);
         --color-activity-bar-background: var(--color-0);
@@ -145,117 +175,88 @@
         --color-debug-view-state-label-foreground: var(--color-2);
         --color-debug-view-value-changed-highlight: var(--color-yellow);
         --color-description-foreground: var(--color-6);
-        --color-diff-editor-diagonal-fill: var(--color-3);
-        --color-diff-editor-inserted-line-background: var(--color-green)19;
-        --color-diff-editor-inserted-text-background: var(--color-green)19;
-        --color-diff-editor-removed-line-background: var(--color-red)19;
-        --color-diff-editor-removed-text-background: var(--color-red)19;
-        --color-diff-editor-gutter-inserted-line-background: var(--color-green)19;
-        --color-diff-editor-gutter-removed-line-background: var(--color-red)19;
-        --color-diff-editor-overview-inserted-foreground: var(--color-green)a5;
-        --color-diff-editor-overview-removed-foreground: var(--color-red)a5;
+        --color-diff-diagonal-fill: var(--color-3);
         --color-dropdown-background: var(--color-2);
         --color-dropdown-border: var(--color-2);
         --color-dropdown-foreground: var(--color-6);
         --color-dropdown-list-background: var(--color-3);
-        --color-editor-background: var(--color-2);
-        --color-editor-find-match-background: var(--color-8)26;
-        --color-editor-find-match-border: var(--color-yellow);
-        --color-editor-find-match-highlight-background: var(--color-8)26;
-        --color-editor-find-match-highlight-border: var(--color-transparent);
-        --color-editor-find-range-highlight-background: var(--color-8)0c;
-        --color-editor-find-range-highlight-border: var(--color-transparent);
-        --color-editor-focused-stack-frame-highlight-background: var(--color-7)26;
-        --color-editor-fold-background: var(--color-8)0c;
-        --color-editor-foreground: var(--color-8);
-        --color-editor-hover-highlight-background: var(--color-8)0c;
-        --color-editor-inactive-selection-background: var(--color-8)0c;
-        --color-editor-inline-values-background: var(--color-4);
-        --color-editor-inline-values-foreground: var(--color-7);
-        --color-editor-line-highlight-background: var(--color-8)0c;
-        --color-editor-line-highlight-border: var(--color-transparent);
-        --color-editor-linked-editing-background: var(--color-3);
-        --color-editor-range-highlight-background: var(--color-3);
-        --color-editor-range-highlight-border: var(--color-3);
-        --color-editor-selection-background: var(--color-7)26;
-        --color-editor-selection-highlight-background: var(--color-8)26;
-        --color-editor-selection-highlight-border: var(--color-transparent);
-        --color-editor-stack-frame-highlight-background: var(--color-7)26;
-        --color-editor-word-highlight-background: var(--color-8)26;
-        --color-editor-word-highlight-border: var(--color-transparent);
-        --color-editor-word-highlight-strong-background: var(--color-8)26;
-        --color-editor-word-highlight-strong-border: var(--color-transparent);
-        --color-editor-bracket-highlight-foreground1: var(--color-red);
-        --color-editor-bracket-highlight-foreground2: var(--color-orange);
-        --color-editor-bracket-highlight-foreground3: var(--color-yellow);
-        --color-editor-bracket-highlight-foreground4: var(--color-green);
-        --color-editor-bracket-highlight-foreground5: var(--color-blue);
-        --color-editor-bracket-highlight-foreground6: var(--color-purple);
-        --color-editor-bracket-match-background: var(--color-2);
-        --color-editor-bracket-match-border: var(--color-5);
-        --color-editor-code-lens-foreground: var(--color-5);
-        --color-editor-cursor-background: var(--color-2);
-        --color-editor-cursor-foreground: var(--color-8);
-        --color-editor-error-background: var(--color-transparent);
-        --color-editor-error-border: var(--color-transparent);
-        --color-editor-error-foreground: var(--color-red);
-        --color-editor-group-border: var(--color-1);
-        --color-editor-group-drop-background: var(--color-1)bf;
-        --color-editor-group-empty-background: var(--color-0);
-        --color-editor-group-focused-empty-border: var(--color-1);
-        --color-editor-group-header-no-tabs-background: var(--color-2);
-        --color-editor-group-header-tabs-background: var(--color-2);
-        --color-editor-group-header-tabs-border: var(--color-2);
-        --color-editor-gutter-added-background: var(--color-green);
-        --color-editor-gutter-background: var(--color-2);
-        --color-editor-gutter-deleted-background: var(--color-red);
-        --color-editor-gutter-folding-control-foreground: var(--color-7);
-        --color-editor-gutter-modified-background: var(--color-orange);
-        --color-editor-hint-border: var(--color-2);
-        --color-editor-hint-foreground: var(--color-purple);
-        --color-editor-hover-widget-background: var(--color-3);
-        --color-editor-hover-widget-border: var(--color-2);
-        --color-editor-indent-guide-background: var(--color-3);
-        --color-editor-info-background: var(--color-transparent);
-        --color-editor-info-border: var(--color-2);
-        --color-editor-info-foreground: var(--color-blue);
-        --color-editor-light-bulb-foreground: var(--color-yellow);
-        --color-editor-light-bulb-auto-fix-foreground: var(--color-green);
-        --color-editor-line-number-active-foreground: var(--color-7);
-        --color-editor-line-number-foreground: var(--color-4);
-        --color-editor-link-active-foreground: var(--color-blue);
-        --color-editor-marker-navigation-background: var(--color-3);
-        --color-editor-marker-navigation-error-background: var(--color-red);
-        --color-editor-marker-navigation-info-background: var(--color-blue);
-        --color-editor-marker-navigation-warning-background: var(--color-orange);
-        --color-editor-overview-ruler-added-foreground: var(--color-green);
-        --color-editor-overview-ruler-border: var(--color-2);
-        --color-editor-overview-ruler-current-content-foreground: var(--color-3);
-        --color-editor-overview-ruler-deleted-foreground: var(--color-red);
-        --color-editor-overview-ruler-error-foreground: var(--color-red);
-        --color-editor-overview-ruler-find-match-foreground: var(--color-8)26;
-        --color-editor-overview-ruler-incoming-content-foreground: var(--color-3);
-        --color-editor-overview-ruler-info-foreground: var(--color-blue);
-        --color-editor-overview-ruler-modified-foreground: var(--color-orange);
-        --color-editor-overview-ruler-range-highlight-foreground: var(--color-8)26;
-        --color-editor-overview-ruler-selection-highlight-foreground: var(--color-8)26;
-        --color-editor-overview-ruler-warning-foreground: var(--color-orange);
-        --color-editor-overview-ruler-word-highlight-foreground: var(--color-8)26;
-        --color-editor-overview-ruler-word-highlight-strong-foreground: var(--color-8)26;
-        --color-editor-pane-background: var(--color-2);
-        --color-editor-ruler-foreground: var(--color-4);
-        --color-editor-suggest-widget-background: var(--color-3);
-        --color-editor-suggest-widget-border: var(--color-3);
-        --color-editor-suggest-widget-foreground: var(--color-7);
-        --color-editor-suggest-widget-highlight-foreground: var(--color-8);
-        --color-editor-suggest-widget-selected-background: var(--color-5);
-        --color-editor-unnecessary-code-opacity: var(--color-transparent-67);
-        --color-editor-warning-background: var(--color-transparent);
-        --color-editor-warning-border: var(--color-transparent);
-        --color-editor-warning-foreground: var(--color-orange);
-        --color-editor-whitespace-foreground: var(--color-4);
-        --color-editor-widget-background: var(--color-3);
-        --color-editor-widget-border: var(--color-3);
+        --color-background: var(--color-2);
+        --color-find-match-border: var(--color-yellow);
+        --color-find-match-highlight-border: var(--color-transparent);
+        --color-foreground: var(--color-8);
+        --color-inline-values-background: var(--color-4);
+        --color-inline-values-foreground: var(--color-7);
+        --color-line-highlight-border: var(--color-transparent);
+        --color-linked-editing-background: var(--color-3);
+        --color-range-highlight-background: var(--color-3);
+        --color-range-highlight-border: var(--color-3);
+        --color-selection-highlight-border: var(--color-transparent);
+        --color-word-highlight-border: var(--color-transparent);
+        --color-word-highlight-strong-border: var(--color-transparent);
+        --color-bracket-highlight-foreground1: var(--color-red);
+        --color-bracket-highlight-foreground2: var(--color-orange);
+        --color-bracket-highlight-foreground3: var(--color-yellow);
+        --color-bracket-highlight-foreground4: var(--color-green);
+        --color-bracket-highlight-foreground5: var(--color-blue);
+        --color-bracket-highlight-foreground6: var(--color-purple);
+        --color-bracket-match-background: var(--color-2);
+        --color-bracket-match-border: var(--color-5);
+        --color-code-lens-foreground: var(--color-5);
+        --color-cursor-background: var(--color-2);
+        --color-cursor-foreground: var(--color-8);
+        --color-error-background: var(--color-transparent);
+        --color-error-border: var(--color-transparent);
+        --color-error-foreground: var(--color-red);
+        --color-group-border: var(--color-1);
+        --color-group-empty-background: var(--color-0);
+        --color-group-focused-empty-border: var(--color-1);
+        --color-group-header-no-tabs-background: var(--color-2);
+        --color-group-header-tabs-background: var(--color-2);
+        --color-group-header-tabs-border: var(--color-2);
+        --color-gutter-added-background: var(--color-green);
+        --color-gutter-background: var(--color-2);
+        --color-gutter-deleted-background: var(--color-red);
+        --color-gutter-folding-control-foreground: var(--color-7);
+        --color-gutter-modified-background: var(--color-orange);
+        --color-hint-border: var(--color-2);
+        --color-hint-foreground: var(--color-purple);
+        --color-hover-widget-background: var(--color-3);
+        --color-hover-widget-border: var(--color-2);
+        --color-indent-guide-background: var(--color-3);
+        --color-info-background: var(--color-transparent);
+        --color-info-border: var(--color-2);
+        --color-info-foreground: var(--color-blue);
+        --color-light-bulb-foreground: var(--color-yellow);
+        --color-light-bulb-auto-fix-foreground: var(--color-green);
+        --color-line-number-active-foreground: var(--color-7);
+        --color-line-number-foreground: var(--color-4);
+        --color-link-active-foreground: var(--color-blue);
+        --color-marker-navigation-background: var(--color-3);
+        --color-marker-navigation-error-background: var(--color-red);
+        --color-marker-navigation-info-background: var(--color-blue);
+        --color-marker-navigation-warning-background: var(--color-orange);
+        --color-overview-ruler-added-foreground: var(--color-green);
+        --color-overview-ruler-border: var(--color-2);
+        --color-overview-ruler-current-content-foreground: var(--color-3);
+        --color-overview-ruler-deleted-foreground: var(--color-red);
+        --color-overview-ruler-error-foreground: var(--color-red);
+        --color-overview-ruler-incoming-content-foreground: var(--color-3);
+        --color-overview-ruler-info-foreground: var(--color-blue);
+        --color-overview-ruler-modified-foreground: var(--color-orange);
+        --color-overview-ruler-warning-foreground: var(--color-orange);
+        --color-pane-background: var(--color-2);
+        --color-ruler-foreground: var(--color-4);
+        --color-suggest-widget-background: var(--color-3);
+        --color-suggest-widget-border: var(--color-3);
+        --color-suggest-widget-foreground: var(--color-7);
+        --color-suggest-widget-highlight-foreground: var(--color-8);
+        --color-suggest-widget-selected-background: var(--color-5);
+        --color-warning-background: var(--color-transparent);
+        --color-warning-border: var(--color-transparent);
+        --color-warning-foreground: var(--color-orange);
+        --color-whitespace-foreground: var(--color-4);
+        --color-widget-background: var(--color-3);
+        --color-widget-border: var(--color-3);
         --color-error-foreground: var(--color-red);
         --color-extension-badge-remote-foreground: var(--color-green);
         --color-extension-button-prominent-background: var(--color-3);
@@ -266,7 +267,6 @@
         --color-extension-icon-star-foreground: var(--color-yellow);
         --color-extension-icon-verified-foreground: var(--color-green);
         --color-focus-border: var(--color-5);
-        --color-foreground: var(--color-8);
         --color-git-decoration-added-resource-foreground: var(--color-green);
         --color-git-decoration-conflicting-resource-foreground: var(--color-orange);
         --color-git-decoration-deleted-resource-foreground: var(--color-red);
@@ -297,17 +297,13 @@
         --color-keybinding-label-border: var(--color-4);
         --color-keybinding-label-bottom-border: var(--color-3);
         --color-keybinding-label-foreground: var(--color-7);
-        --color-list-active-selection-background: var(--color-8)0c;
         --color-list-active-selection-foreground: var(--color-yellow);
-        --color-list-drop-background: var(--color-1)bf;
         --color-list-error-foreground: var(--color-red);
         --color-list-focus-background: var(--color-2);
         --color-list-focus-foreground: var(--color-8);
         --color-list-highlight-foreground: var(--color-8);
-        --color-list-hover-background: var(--color-8)0c;
         --color-list-hover-foreground: var(--color-8);
         --color-list-inactive-focus-background: var(--color-2);
-        --color-list-inactive-selection-background: var(--color-7)0c;
         --color-list-inactive-selection-foreground: var(--color-yellow);
         --color-list-invalid-item-foreground: var(--color-red);
         --color-list-warning-foreground: var(--color-orange);
@@ -321,35 +317,21 @@
         --color-menu-separator-background: var(--color-3);
         --color-menubar-selection-foreground: var(--color-8);
         --color-merge-border: var(--color-2);
-        --color-merge-common-content-background: var(--color-8)19;
-        --color-merge-common-header-background: var(--color-8)26;
-        --color-merge-current-content-background: var(--color-red)19;
-        --color-merge-current-header-background: var(--color-red)26;
-        --color-merge-incoming-content-background: var(--color-green)19;
-        --color-merge-incoming-header-background: var(--color-green)26;
-        --color-merge-editor-change-background: var(--color-8)19;
-        --color-merge-editor-change-word-background: var(--color-8)19;
-        --color-merge-editor-conflict-handled-minimap-over-view-ruler: var(--color-green);
-        --color-merge-editor-conflict-handled-focused-border: var(--color-green);
-        --color-merge-editor-conflict-handled-unfocused-border: var(--color-green);
-        --color-merge-editor-conflict-unhandled-minimap-over-view-ruler: var(--color-red);
-        --color-merge-editor-conflict-unhandled-focused-border: var(--color-red);
-        --color-merge-editor-conflict-unhandled-unfocused-border: var(--color-red);
-        --color-minimap-error-highlight: var(--color-red)a5;
-        --color-minimap-find-match-highlight: var(--color-6)a5;
-        --color-minimap-selection-highlight: var(--color-7)26;
-        --color-minimap-selection-occurrence-highlight: var(--color-5)a5;
-        --color-minimap-warning-highlight: var(--color-orange)a5;
+        --color-merge-conflict-handled-minimap-over-view-ruler: var(--color-green);
+        --color-merge-conflict-handled-focused-border: var(--color-green);
+        --color-merge-conflict-handled-unfocused-border: var(--color-green);
+        --color-merge-conflict-unhandled-minimap-over-view-ruler: var(--color-red);
+        --color-merge-conflict-unhandled-focused-border: var(--color-red);
+        --color-merge-conflict-unhandled-unfocused-border: var(--color-red);
         --color-minimap-gutter-added-background: var(--color-green);
         --color-minimap-gutter-deleted-background: var(--color-red);
         --color-minimap-gutter-modified-background: var(--color-yellow);
         --color-notebook-cell-border-color: var(--color-3);
-        --color-notebook-cell-editor-background: var(--color-1)7f;
         --color-notebook-cell-insertion-indicator: var(--color-8);
         --color-notebook-cell-status-bar-item-hover-background: var(--color-5);
         --color-notebook-cell-toolbar-separator: var(--color-3);
-        --color-notebook-editor-background: var(--color-2);
-        --color-notebook-focused-editor-border: var(--color-5);
+        --color-notebook-background: var(--color-2);
+        --color-notebook-focused-border: var(--color-5);
         --color-notebook-status-error-icon-foreground: var(--color-red);
         --color-notebook-status-running-icon-foreground: var(--color-8);
         --color-notebook-status-success-icon-foreground: var(--color-green);
@@ -366,14 +348,13 @@
         --color-notification-toast-border: var(--color-3);
         --color-panel-background: var(--color-3);
         --color-panel-border: var(--color-2);
-        --color-panel-drop-background: var(--color-1)bf;
         --color-panel-title-active-border: var(--color-yellow);
         --color-panel-title-active-foreground: var(--color-yellow);
         --color-panel-title-inactive-foreground: var(--color-6);
         --color-peek-view-border: var(--color-2);
-        --color-peek-view-editor-background: var(--color-3);
-        --color-peek-view-editor-match-highlight-background: var(--color-4);
-        --color-peek-view-editor-gutter-background: var(--color-3);
+        --color-peek-view-background: var(--color-3);
+        --color-peek-view-match-highlight-background: var(--color-4);
+        --color-peek-view-gutter-background: var(--color-3);
         --color-peek-view-result-background: var(--color-3);
         --color-peek-view-result-file-foreground: var(--color-6);
         --color-peek-view-result-line-foreground: var(--color-6);
@@ -393,9 +374,6 @@
         --color-sash-hover-border: var(--color-5);
         --color-scrollbar-shadow: var(--color-2);
         --color-scrollbar-slider-active-background: var(--color-5);
-        --color-scrollbar-slider-background: var(--color-7)26;
-        --color-scrollbar-slider-hover-background: var(--color-8)26;
-        --color-selection-background: var(--color-7)26;
         --color-settings-checkbox-background: var(--color-3);
         --color-settings-checkbox-border: var(--color-3);
         --color-settings-checkbox-foreground: var(--color-8);
@@ -409,13 +387,11 @@
         --color-settings-number-input-background: var(--color-3);
         --color-settings-number-input-border: var(--color-3);
         --color-settings-number-input-foreground: var(--color-8);
-        --color-settings-row-hover-background: var(--color-5)0c;
         --color-settings-text-input-background: var(--color-3);
         --color-settings-text-input-border: var(--color-3);
         --color-settings-text-input-foreground: var(--color-8);
         --color-side-bar-background: var(--color-1);
         --color-side-bar-border: var(--color-0);
-        --color-side-bar-drop-background: var(--color-1)bf;
         --color-side-bar-foreground: var(--color-6);
         --color-side-bar-section-header-background: var(--color-1);
         --color-side-bar-section-header-foreground: var(--color-5);
@@ -434,7 +410,6 @@
         --color-status-bar-item-error-background: var(--color-2);
         --color-status-bar-item-error-foreground: var(--color-red);
         --color-status-bar-item-focus-border: var(--color-5);
-        --color-status-bar-item-hover-background: var(--color-8)0c;
         --color-status-bar-item-prominent-background: var(--color-3);
         --color-status-bar-item-prominent-hover-background: var(--color-3);
         --color-status-bar-item-remote-background: var(--color-1);
@@ -512,7 +487,6 @@
         --color-terminal-ansi-yellow: var(--color-yellow);
         --color-terminal-background: var(--color-3);
         --color-terminal-foreground: var(--color-8);
-        --color-terminal-selection-background: var(--color-8)26;
         --color-terminal-command-decoration-default-background: var(--color-8);
         --color-terminal-command-decoration-error-background: var(--color-red);
         --color-terminal-command-decoration-success-background: var(--color-green);
@@ -525,9 +499,6 @@
         --color-testing-icon-skipped: var(--color-orange);
         --color-testing-icon-unset: var(--color-6);
         --color-testing-message-error-decoration-foreground: var(--color-red);
-        --color-testing-message-error-line-background: var(--color-red)19;
-        --color-testing-message-info-decoration-foreground: var(--color-8);
-        --color-testing-message-info-line-background: var(--color-8)19;
         --color-testing-run-action: var(--color-yellow);
         --color-text-block-quote-background: var(--color-3);
         --color-text-block-quote-border: var(--color-3);
@@ -541,7 +512,7 @@
         --color-title-bar-border: var(--color-0);
         --color-title-bar-inactive-background: var(--color-1);
         --color-title-bar-inactive-foreground: var(--color-4);
-        --color-walk-through-embedded-editor-background: var(--color-1);
+        --color-walk-through-embedded-background: var(--color-1);
         --color-welcome-page-button-background: var(--color-3);
         --color-welcome-page-button-hover-background: var(--color-4);
         --color-welcome-page-progress-background: var(--color-5);
@@ -577,6 +548,13 @@
         --transition-duration: 0.12s;
         --transition-ease: ease-out;
         --transition: var(--transition-duration) var(--transition-ease);
+
+        --shadow: 0 1px 2px rgba(var(--color-0-rgb), 0.30),
+                  0 2px 4px rgba(var(--color-0-rgb), 0.25),
+                  0 4px 8px rgba(var(--color-0-rgb), 0.20),
+                  0 8px 16px rgba(var(--color-0-rgb), 0.15),
+                  0 16px 32px rgba(var(--color-0-rgb), 0.10),
+                  0 32px 64px rgba(var(--color-0-rgb), 0.05);
     }
     :global(body) {
         margin: 0;
@@ -585,8 +563,8 @@
         font-weight: 300;
         line-height: 1;
         min-height: 100vh;
-        color: var(--color-gray);
-        background-color: var(--color-brown);
+        color: var(--color-foreground);
+        background-color: var(--color-background);
         font-smooth: always;
     }
     :global(body *) {
@@ -599,6 +577,12 @@
     }
     :global(main) {
         position: relative;
+    }
+    :global(img) {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0;
     }
 
     /** Typography */
