@@ -11,7 +11,8 @@
             <img alt="" src={photo} />
         </svelte:fragment>
         <svelte:fragment slot="content">
-            <p>Godbound Scribe is a dashboard of sorts, specifically designed to aid your tabletop RPG game. Ok, more specifically Godbound&hellip; Alright, let&rsquo;s be honest. I made this for me. It&rsquo;s mine and you cannot&nbsp;have&nbsp;it.</p>
+            <p>Godbound Scribe is a dashboard of sorts, specifically designed to aid your tabletop RPG game. Ok, more specifically Godbound&hellip;</p>
+            <p>Alright, let&rsquo;s be honest. I made this for me. It&rsquo;s mine and you cannot&nbsp;have&nbsp;it.</p>
         </svelte:fragment>
         <svelte:fragment slot="footer">
             <Button href="/sign-in" priority="medium">Sign In</Button>
@@ -24,7 +25,7 @@
     .home {
         display: grid;
         align-items: center;
-        justify-content: center;
+        justify-items: center;
         min-height: calc(100vh - var(--nav-height));
         padding: 0 100px;
         text-align: center;
