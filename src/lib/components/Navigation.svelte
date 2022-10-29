@@ -31,7 +31,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        background: var(--color-gray);
+        background: var(--color-banner-background);
     }
     .header__nav {
         display: grid;
@@ -57,7 +57,7 @@
         font-family: var(--font-rune);
         font-size: 1rem;
         text-align: center;
-        color: var(--text-color-bk-dark);
+        color: var(--color-banner-foreground);
     }
     .header__logo-svg,
     .header__logo-user {
