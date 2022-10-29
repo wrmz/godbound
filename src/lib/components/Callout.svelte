@@ -21,7 +21,7 @@
             </figure>
         {/if}
         <div class="callout__content-copy">
-            <slot name="content"></slot>
+            <slot name="content"><p>Placeholder</p></slot>
         </div>
     </div>
     {#if $$slots.footer}
@@ -32,29 +32,17 @@
 </article>
 
 <style>
-    :global(img) {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top left;
-    }
-    :global(.callout__content p) {
-        position: relative;
-        margin: 0;
-    }
-    :global(.callout__content p::before) {
-        content: '0';
-        position: absolute;
-        top: -0.35rem;
-        left: -1.8rem;
-        font-family: var(--font-symbol);
-        font-size: 2.5em;
-        line-height: 1;
-        color: rgba(var(--color-gray-rgb), 0.3);
-    }
     .callout {
-        max-width: 1000px;
+        display: grid;
+        /* width: 860px; */
+        width: 660px;
+        max-width: calc(100% - 40px);
+        gap: 60px;
+        color: var(--color-foreground);
+        border-radius: 4px;
+        background: var(--color-panel-background);
+        box-shadow: var(--shadow);
+        overflow: hidden;
     }
     .callout__header {
         position: relative;
@@ -62,21 +50,42 @@
         align-items: center;
         justify-content: center;
         height: 175px;
-        color: var(--text-color-bk-brown);
-        border-radius: 2px 2px 0 0;
-        background: var(--color-brown);
+        color: var(--color-foreground);
+        background: var(--color-1)
     }
-
     .callout__content {
         display: grid;
         grid-template-columns: max-content 1fr;
         gap: 30px;
-        padding: 40px;
+        padding: 0 40px;
         font-size: 18px;
-        line-height: 1.8;
+        line-height: 2;
         text-align: left;
+    }
+    .callout__content :global(img) {
+        height: 100%;
+        object-fit: cover;
+        object-position: top left;
+    }
+    .callout__content :global(p) {
+        position: relative;
+        margin: 0 0 1.5em;
+    }
+    .callout__content :global(p:last-child) {
+        margin: 0;
+    }
+    .callout__content :global(p:first-child) {
         text-indent: 1.5em;
-        box-shadow: -0.5px 0 0 0 var(--color-brown) inset, 0.5px 0 0 0 var(--color-brown) inset;
+    }
+    .callout__content :global(p:first-child::before) {
+        content: '0';
+        position: absolute;
+        top: -0.35rem;
+        left: -1.8rem;
+        font-family: var(--font-symbol);
+        font-size: 2.5em;
+        line-height: 1;
+        color: rgba(var(--color-4-rgb), 1);
     }
     .callout__content--single {
         grid-template-columns: unset;
@@ -86,13 +95,12 @@
         width: 120px;
         height: 100px;
         margin: 0;
-        border-radius: 2px;
-        border: 10px solid white;
-        box-shadow: 0 0 0 1px var(--color-tan);
+        border-radius: 4px;
+        border: 3px solid var(--color-1);
     }
     .callout__content-figure + .callout__content-copy {
         padding: 0 0 0 30px;
-        border-left: 1px solid var(--color-tan);
+        border-left: 0.5px solid var(--color-4);
     }
 
     .callout__footer {
@@ -102,10 +110,10 @@
         grid-auto-columns: minmax(25%, 1fr);
         justify-content: center;
         align-items: center;
-        gap: 30px;
-        padding: 30px;
+        gap: 40px;
+        padding: 0 40px 40px;
         border-radius: 0 0 2px 2px;
-        background: var(--color-brown);
+        background: var(--color-panel-background);
     }
 
     .callout__content-figcaption {
@@ -113,9 +121,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        top: calc(100% + 20px);
+        top: calc(100% + 15px);
         left: 0;
         width: 100%;
-        color: var(--color-tan);
+        color: var(--color-1);
     }
 </style>
