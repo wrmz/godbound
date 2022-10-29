@@ -2,7 +2,6 @@
     import Button from '$lib/components/Button.svelte';
     import Callout from '$lib/components/Callout.svelte';
     import photo from '$lib/assets/beard_2.png'
-    import { page } from '$app/stores';
 </script>
 
 <section class="home">

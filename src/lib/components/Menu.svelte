@@ -4,16 +4,16 @@
 
 <menu class='menu'>
     <li class='menu__item'>
-        <Button class='menu__button'>Campaigns</Button>
+        <Button href='./campaigns' class='menu__button'>Campaigns</Button>
     </li>
     <li class='menu__item'>
-        <Button class='menu__button'>Characters</Button>
+        <Button href='./characters' class='menu__button'>Characters</Button>
     </li>
     <li class='menu__item'>
-        <Button class='menu__button'>Profile</Button>
+        <Button href='./profile' class='menu__button'>Profile</Button>
     </li>
     <li class='menu__item'>
-        <Button class='menu__button'>Account</Button>
+        <Button href='./account' class='menu__button'>Account</Button>
     </li>
 </menu>
 
@@ -37,6 +37,7 @@
         height: 35px;
         overflow: hidden;
         font-size: 0.875em;
+        line-height: 33px;
         white-space: nowrap;
         text-overflow: ellipsis;
         text-align: left;

@@ -27,15 +27,15 @@
     */
     @font-face {
         font-family: 'RunistaSymbols';
-        src: url('fonts/RunistaSymbols/font.woff2') format('woff2'), url('fonts/RunistaSymbols/font.woff') format('woff');
+        src: url('/fonts/RunistaSymbols/font.woff2') format('woff2'), url('fonts/RunistaSymbols/font.woff') format('woff');
     }
     @font-face {
         font-family: 'RunistaDecorative';
-        src: url('fonts/RunistaDecorative/font.woff2') format('woff2'), url('fonts/RunistaDecorative/font.woff') format('woff');
+        src: url('/fonts/RunistaDecorative/font.woff2') format('woff2'), url('fonts/RunistaDecorative/font.woff') format('woff');
     }
     @font-face {
         font-family: 'Primitive';
-        src: url('fonts/Primitive/font.woff2') format('woff2'), url('fonts/Primitive/font.woff') format('woff');
+        src: url('/fonts/Primitive/font.woff2') format('woff2'), url('fonts/Primitive/font.woff') format('woff');
     }
 
     :root {
