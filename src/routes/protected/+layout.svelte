@@ -6,7 +6,7 @@
 </script>
 
 <div class='workspace'>
-    <Menu class='workspace__menu' />
+    <div class='workspace__menu'><Menu /></div>
     <div class='workspace__editor'>
         <div class='editor'>
             <div class='editor__container'>
@@ -18,9 +18,15 @@
 
 <style>
     .workspace {
+        position: relative;
         display: grid;
         height: 100%;
         grid-template-columns: 120px 1fr;
+    }
+    .workspace__menu {
+        position: sticky;
+        top: var(--nav-height);
+        height: calc(100vh - var(--nav-height));
     }
     .workspace__editor {
         position: relative;
