@@ -1,7 +1,7 @@
 import { getUser } from '$lib/server/db.js';
 import { redirect } from '@sveltejs/kit';
 
-/** @type {import('./$types').PageServerLoad} */
+/** @type {import('./$types').LayoutServerLoad} */
 export async function load({ locals }) {
 
     if (!locals.user?.authenticated) {
