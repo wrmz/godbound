@@ -20,9 +20,12 @@
 
 <style>
     .menu {
+        position: sticky;
         display: grid;
         align-content: flex-start;
         gap:1px;
+        top: var(--nav-height);
+        height: calc(100% - var(--nav-height));
         margin: 0;
         padding: 20px 1px 0;
         list-style: none;
