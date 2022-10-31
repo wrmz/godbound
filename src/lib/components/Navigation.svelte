@@ -32,6 +32,7 @@
         left: 0;
         width: 100%;
         background: var(--color-banner-background);
+        z-index: 2;
     }
     .header__nav {
         display: grid;

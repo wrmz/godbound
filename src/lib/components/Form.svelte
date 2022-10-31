@@ -23,36 +23,11 @@
     <footer class='form__footer'>
         <Button type="submit" priority="medium">{submit}</Button>
     </footer>
-
-    <!-- <header class='callout__header'>
-        <Heading content={title} />
-    </header>
-    <div class='callout__content {!$$slots.image ? 'callout__content--single' : ''}'>
-        {#if $$slots.image}
-            <figure class='callout__content-figure'>
-                <picture class='callout__content-picture'>
-                    <slot name='image'></slot>
-                </picture>
-                <figcaption class='callout__content-figcaption'>
-                    <Trim class='callout__content-figure-trim' aria-hidden='true'></Trim>
-                </figcaption>
-            </figure>
-        {/if}
-        <div class='callout__content-copy'>
-            <slot name='content'><p>Placeholder</p></slot>
-        </div>
-    </div>
-    {#if $$slots.footer}
-        <footer class='callout__footer'>
-            <slot name='footer'></slot>
-        </footer>
-    {/if} -->
 </form>
 
 <style>
     .form {
         display: grid;
-        /* width: 860px; */
         width: 660px;
         max-width: calc(100% - 40px);
         gap: 60px;

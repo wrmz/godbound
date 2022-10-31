@@ -34,7 +34,5 @@ export const getUser = async (email) => {
         delete user._id;
     }
 
-    console.log('getUser() => ', user);
-
     return user;
 };

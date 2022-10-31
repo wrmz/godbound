@@ -5,6 +5,7 @@
     export let type = 'text';
     export let name = '';
     export let required = false;
+    export let disabled = false;
     export let inputRef = null;
 
     /**
@@ -25,6 +26,7 @@
         placeholder="{label}"
         bind:value
         bind:this={inputRef}
+        {disabled}
         class="field__input"
     />
 </div>

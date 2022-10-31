@@ -1,8 +1,9 @@
 <script>
     import Button from '$lib/components/Button.svelte';
+
 </script>
 
-<menu class='menu'>
+<menu class='menu {$$props.class}'>
     <li class='menu__item'>
         <Button href='/protected/campaigns' class='menu__button'>Campaigns</Button>
     </li>

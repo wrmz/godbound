@@ -567,7 +567,7 @@
         background-color: var(--color-background);
         font-smooth: always;
     }
-    :global(body *) {
+    :global(body *, ::before, ::after) {
         box-sizing: border-box;
     }
     :global(.app) {
@@ -594,6 +594,7 @@
         letter-spacing: 0.05em;
     }
     :global(.title) {
+        margin: 0;
         font-family: var(--font-display);
         font-size: 30px;
         font-weight: normal;

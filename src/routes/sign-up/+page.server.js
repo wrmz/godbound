@@ -26,7 +26,6 @@ export const actions = {
 
 
         if (!isPasswordValid || !isEmailValid || !isUsernameValid) {
-            console.log('has an error', isPasswordValid, isEmailValid, isUsernameValid);
             return invalid(401, {
                 invalid: true,
                 email: !isEmailValid ? 'Email is not a valid email address or contains an invalid character.' : '',
@@ -40,7 +39,6 @@ export const actions = {
         const duplicateEmail = await db.collection('users').findOne({ email });
 
         if (duplicateEmail) {
-            console.log('found duplicate email');
             return invalid(401, {
                 invalid: true,
                 username: 'This email is already registered.'

@@ -11,7 +11,6 @@ const destroySession = (locals) => {
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
     const token = event.cookies.get('session_id');
-    console.log('session:', token);
     if (!token) {
         destroySession(event.locals);
     } else {
@@ -20,8 +19,6 @@ export async function handle({ event, resolve }) {
         const userSession = await db.collection('users').findOne({ token });
 
         if (userSession) {
-            console.log('a session exists... with session ID', token);
-            console.log('session:', userSession);
             event.locals.user = {
                 authenticated: true,
                 email: userSession.email,

@@ -66,8 +66,7 @@
 
     /** Low priority buttons */
     .button--low {
-        color: var(--text-color-bk-black);
-        background: var(--color-black);
+        background: var(--color-1);
     }
     .button--medium {
         background-color: var(--color-2);
@@ -81,8 +80,7 @@
     }
 
     .button--high {
-        color: var(--text-color-bk-gray);
-        background: var(--color-gray);
+        background: var(--color-4);
     }
 
     .button--em {
