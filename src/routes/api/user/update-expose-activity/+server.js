@@ -16,7 +16,7 @@ export async function POST ({ request, locals }) {
     }
 
     await db.collection('users').updateOne({ email: locals.user.email }, { $set: {
-        expose_activity: expose_activity,
+        expose_activity: expose_activity ? true : false,
         last_online: new Date(),
         updated_date: new Date(),
     } });

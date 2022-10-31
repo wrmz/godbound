@@ -10,7 +10,7 @@
 
     function submit(field) {
         return async ({ detail }) => {
-            const response = await fetch('/api/user/update-expose-activity', {
+            const response = await fetch(`/api/user/update-${field}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -27,15 +27,24 @@
     <h1 class='title'>Account Settings</h1>
     <div class='account__section'>
         <h2 class='title'>Security</h2>
-        <SecureInput label='Email' name='email' bind:value={email} />
-        <SecureInput label='Password' name='password' bind:value={password} />
+        <SecureInput
+            label='Email'
+            name='email'
+            bind:value={email}
+            on:submit={submit('update-email')}
+        />
+        <SecureInput
+            label='Password'
+            name='password'
+            bind:value={password}
+        />
     </div>
     <div class='account__section'>
         <h2 class='title'>Privacy</h2>
         <SecureCheckbox
             name='expose_activity'
             checked={exposeActivity}
-            on:submit={submit('expose_activity')}
+            on:submit={submit('expose-activity')}
         >
             Allow others to know when I&rsquo;m online.
         </SecureCheckbox>

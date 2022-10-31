@@ -7,18 +7,26 @@
     export let checked = false;
     export let name = '';
 
-    function handleSubmit() {
-        const formData = {};
-        formData[name] = checked;
-        dispatch('submit', formData);
+    /** @param {any} detail */
+    const handleChange = ({ detail }) => {
+        const form = detail.target.form;
+        checked = detail.target.checked;
+
+        if (form) {
+            handleSubmit({ target: form });
+        }
+    };
+
+    /** @param {any} event */
+    const handleSubmit = async (event) => {
+        let data = new FormData(event.target);
+        console.log(`${name}:`, data.get(name))
+        dispatch('submit', data);
     }
 </script>
 
-<form
-    class='s-checkbox'
-    on:submit|preventDefault={handleSubmit}
->
-    <Checkbox {name} bind:checked on:change={handleSubmit}>
+<form class='s-checkbox' on:submit|preventDefault={handleSubmit}>
+    <Checkbox {name} bind:checked on:change={handleChange}>
         <slot></slot>
     </Checkbox>
 </form>
