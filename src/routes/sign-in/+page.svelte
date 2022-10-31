@@ -9,7 +9,7 @@
 <section class="auth__section">
     <Form
         name='signin'
-        title='Your %%Journey%% Begins'
+        title='Your %%JourneY%% Continues'
         submit='Sign In'
     >
         <Input label='Email' id='email' type='email' bind:value={email} name='email' required />

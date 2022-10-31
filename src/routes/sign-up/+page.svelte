@@ -10,7 +10,7 @@
 <section class='auth__section'>
     <Form
         name='signup'
-        title='Your %%Journey%% Continues'
+        title='Your %%JourneY%% Begins'
         submit='Sign Up'
     >
         <Input label='Username' id='username' name='username' bind:value={username} required />
