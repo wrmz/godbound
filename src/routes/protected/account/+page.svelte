@@ -1,4 +1,5 @@
 <script>
+    import { invalidateAll, goto } from '$app/navigation';
     import SecureInput from '$lib/components/SecureInput.svelte';
     import SecureCheckbox from '$lib/components/SecureCheckbox.svelte';
     import Button from '$lib/components/Button.svelte';
@@ -6,7 +7,7 @@
 
     export let email = $page.data.user.email;
     export let password = '••••••••••';
-    export let exposeActivity = true;
+    export let expose_activity = true;
 
     function submit(field) {
         return async ({ detail }) => {
@@ -17,8 +18,12 @@
                 },
                 body: JSON.stringify(detail)
             });
+            const result = await response.json();
 
-            return await response.json();
+            if (response.ok) {
+                invalidateAll();
+                email = result.email;
+            }
         };
     }
 </script>
@@ -30,8 +35,8 @@
         <SecureInput
             label='Email'
             name='email'
-            bind:value={email}
-            on:submit={submit('update-email')}
+            value={email}
+            on:submit={submit('email')}
         />
         <SecureInput
             label='Password'
@@ -43,7 +48,7 @@
         <h2 class='title'>Privacy</h2>
         <SecureCheckbox
             name='expose_activity'
-            checked={exposeActivity}
+            checked={expose_activity}
             on:submit={submit('expose-activity')}
         >
             Allow others to know when I&rsquo;m online.

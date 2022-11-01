@@ -18,9 +18,8 @@
     };
 
     /** @param {any} event */
-    const handleSubmit = async (event) => {
+    const handleSubmit = (event) => {
         let data = new FormData(event.target);
-        console.log(`${name}:`, data.get(name))
         dispatch('submit', data);
     }
 </script>

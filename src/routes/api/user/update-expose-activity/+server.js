@@ -5,7 +5,6 @@ export async function POST ({ request, locals }) {
     const dbConnection = await connectToDatabase();
     const db = dbConnection.db;
     const data = await request.json();
-    const expose_activity = data.expose_activity;
 
     if (!locals?.user?.authenticated || !locals?.user?.email) {
         return new Response(JSON.stringify({
@@ -16,7 +15,7 @@ export async function POST ({ request, locals }) {
     }
 
     await db.collection('users').updateOne({ email: locals.user.email }, { $set: {
-        expose_activity: expose_activity ? true : false,
+        expose_activity: data.expose_activity ? true : false,
         last_online: new Date(),
         updated_date: new Date(),
     } });
