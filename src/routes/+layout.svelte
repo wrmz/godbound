@@ -570,6 +570,11 @@
     :global(body *, ::before, ::after) {
         box-sizing: border-box;
     }
+
+    :global(body *::selection) {
+        background: rgba(var(--color-0-rgb), 0.4);
+    }
+
     :global(.app) {
         display: grid;
         grid-template-rows: max-content 1fr max-content;
