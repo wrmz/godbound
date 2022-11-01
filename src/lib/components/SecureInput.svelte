@@ -8,6 +8,7 @@
     let oldValue = '';
 
     export let error = '';
+    export let type = 'text';
     export let label = '';
     export let name = '';
     export let value = '';
@@ -35,7 +36,7 @@
         <p>{error}</p>
     {/if}
     <label for={name} class='s-input__label'>{label}</label>
-    <Input label='{label}' id={name} name={name} placeholder='Enter a new {label}' bind:value={value} disabled='{isDisabled}' />
+    <Input {type} label='{label}' id={name} name={name} placeholder='Enter a new {label}' bind:value={value} disabled='{isDisabled}' />
     <div class='s-input__actions'>
         {#if isDisabled}
             <Button on:click={change} priority='low'>Change</Button>

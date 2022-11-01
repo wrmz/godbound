@@ -33,12 +33,14 @@
     <div class='account__section'>
         <h2 class='title'>Security</h2>
         <SecureInput
+            type='email'
             label='Email'
             name='email'
             value={email}
             on:submit={submit('email')}
         />
         <SecureInput
+            type='password'
             label='Password'
             name='password'
             bind:value={password}

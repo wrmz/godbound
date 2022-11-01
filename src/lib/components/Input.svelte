@@ -67,4 +67,8 @@
     outline: 0;
 }
 
+.field__input:invalid {
+    border-color: var(--color-red);
+}
+
 </style>
