@@ -2,6 +2,9 @@
     import Button from '$lib/components/Button.svelte';
     import Callout from '$lib/components/Callout.svelte';
     import photo from '$lib/assets/beard_2.png'
+    import { page } from '$app/stores';
+
+    export const authenticated = $page.data.user?.authenticated;
 </script>
 
 <section class="home">
@@ -14,8 +17,10 @@
             <p>Alright, let&rsquo;s be honest. I made this for me. It&rsquo;s mine and you cannot&nbsp;have&nbsp;it.</p>
         </svelte:fragment>
         <svelte:fragment slot="footer">
-            <Button href="/sign-in" priority="medium">Sign In</Button>
-            <Button href="/sign-up" priority="medium">Sign Up</Button>
+            {#if !authenticated}
+                <Button href="/sign-in" priority="medium">Sign In</Button>
+                <Button href="/sign-up" priority="medium">Sign Up</Button>
+            {/if}
         </svelte:fragment>
     </Callout>
 </section>
