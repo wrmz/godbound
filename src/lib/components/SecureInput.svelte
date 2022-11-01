@@ -1,13 +1,16 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import Button from '$lib/components/Button.svelte';
     import Input from '$lib/components/Input.svelte';
+
+    const dispatch = createEventDispatcher();
+    let isDisabled = true;
+    let oldValue = '';
 
     export let error = '';
     export let label = '';
     export let name = '';
     export let value = '';
-    let isDisabled = true;
-    let oldValue = '';
 
     const change = () => {
         isDisabled = !isDisabled;
@@ -18,9 +21,16 @@
             value = oldValue;
         }
     };
+
+    /** @param {any} event */
+    const handleSubmit = async (event) => {
+        let data = await new FormData(event.target);
+        dispatch('submit', { [name]: data.get(name) });
+        change();
+    };
 </script>
 
-<form method='POST' action='?/{name}' class='s-input'>
+<form class='s-input' on:submit|preventDefault={handleSubmit}>
     {#if error}
         <p>{error}</p>
     {/if}
