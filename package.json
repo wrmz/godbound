@@ -2,6 +2,10 @@
 	"name": "godbound",
 	"version": "0.0.1",
 	"private": true,
+	"author": {
+		"name": "William Metz",
+		"email": "wmetz+git@fastmail.com"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
