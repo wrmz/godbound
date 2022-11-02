@@ -7,6 +7,8 @@
     export let required = false;
     export let disabled = false;
     export let inputRef = null;
+    export let isDirty = false;
+    export let isEditing = false;
 
     /**
      * @param {Object} node
@@ -14,6 +16,11 @@
      */
     function setType(node) {
         node.type = type;
+    }
+
+    function checkIfDirty(e) {
+        isEditing = e.type === 'focus';
+        isDirty = value.trim().length > 0;
     }
 </script>
 <div class={'field ' + $$props.class}>
@@ -28,12 +35,16 @@
         bind:this={inputRef}
         {disabled}
         class="field__input"
+        class:field__input--dirty={isDirty && !isEditing}
+        on:focus={checkIfDirty}
+        on:blur={checkIfDirty}
     />
 </div>
 <style>
 .field {
+    position: relative;
     display: grid;
-    gap: 10px;
+    overflow: hidden;
 }
 .field__input {
     height: 54px;
@@ -41,12 +52,15 @@
     font-family: var(--font-copy);
     font-size: 1.125rem;
     font-weight: 300;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     color: var(--color-foreground);
     border-radius: 2px;
     border: 1px solid var(--color-1);
     background: var(--color-2);
+    overflow: hidden;
     box-shadow: 0 0 0 1px transparent;
-    transition: background-color var(--transition), border-color var(--transition), outline-color var(--transition), color var(--transition), box-shadow var(--transition);
+    transition: background-color var(--transition), border-color var(--transition), outline-color var(--transition), color var(--transition), box-shadow var(--transition), padding-right var(--transition);
 }
 .field__input::placeholder {
     color: var(--color-6);
@@ -54,10 +68,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+.field__input::selection {
+    background: rgba(var(--color-5-rgb), 0.6);
+}
 .field__input:focus::placeholder {
     color: var(--color-5);
 }
 .field__input:focus {
+    padding-right: calc(50px);
     outline: 0;
     border: 1px solid var(--color-0);
     background: var(--color-1);
@@ -66,9 +84,31 @@
 .field__input:focus-visible {
     outline: 0;
 }
+.field::after {
+    content: '0';
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 54px;
+    font-family: var(--font-symbol);
+    font-size: 2.5em;
+    color: var(--color-4);
+    filter: blurX(4px);
+    transform: translateX(100%);
+    transition: transform var(--transition), filter var(--transition);
+}
+.field:focus-within::after {
+    filter: blurX(0);
+    transform: translateX(0);
+}
 
-.field__input:invalid {
+.field__input--dirty:invalid {
     border-color: var(--color-red);
 }
+
 
 </style>

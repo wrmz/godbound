@@ -4,11 +4,12 @@
 
     export let error = '';
     export let name = '';
+    export let autocomplete = 'off';
     export let title = '';
     export let submit = 'Submit';
 </script>
 
-<form id={name} {name} method='POST' class='form'>
+<form id={name} {name} {autocomplete} method='POST' class='form'>
     {#if title}
         <header class='form__header'>
             <Heading content={title} />

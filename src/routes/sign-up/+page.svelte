@@ -12,6 +12,7 @@
         name='signup'
         title='Your %%JourneY%% Begins'
         submit='Sign Up'
+        autocomplete='off'
     >
         <Input label='Username' id='username' name='username' bind:value={username} required />
         <Input label='Email' id='email' type='email' bind:value={email} name='email' required />
