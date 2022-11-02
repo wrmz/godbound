@@ -1,3 +1,4 @@
+import { error } from '@sveltejs/kit';
 import { MongoClient } from 'mongodb';
 import { SECRET_MONGO_URI, SECRET_MONGO_DB } from '$env/static/private';
 
@@ -17,10 +18,17 @@ export const connectToDatabase = async () => {
         _cached.promise = _mongoClient.connect().then((client) => ({
             client,
             db: client.db(SECRET_MONGO_DB)
-        }));
+        })).catch((err) => {
+            console.log('caught error');
+        });
     }
 
-    _cached.conn = await _cached.promise;
+    try {
+        _cached.conn = await _cached.promise;
+    } catch (err) {
+        throw error(504, 'Gateway Timeout. Could not connect to database.');
+    }
+
     return _cached.conn;
 };
 
@@ -28,7 +36,6 @@ export const getUser = async (email) => {
     const dbConnection = await connectToDatabase();
     const db = dbConnection.db;
     const user = await db.collection('users').findOne({ email });
-
     if (user) {
         delete user.password;
         delete user._id;

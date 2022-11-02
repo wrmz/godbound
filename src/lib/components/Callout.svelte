@@ -24,11 +24,11 @@
             <slot name="content"><p>Placeholder</p></slot>
         </div>
     </div>
-    {#if $$slots.footer}
-        <footer class="callout__footer">
+    <footer class="callout__footer">
+        {#if $$slots.footer}
             <slot name="footer"></slot>
-        </footer>
-    {/if}
+        {/if}
+    </footer>
 </article>
 
 <style>
