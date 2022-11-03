@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import Modal, { getModal } from '$lib/components/Modal.svelte';
     import Button from '$lib/components/Button.svelte';
     import Input from '$lib/components/Input.svelte';
 
@@ -23,6 +24,10 @@
         }
     };
 
+    const modalCallback = function (res) {
+        console.log('modal callback:', res);
+    };
+
     /** @param {any} event */
     const handleSubmit = async (event) => {
         let data = await new FormData(event.target);
@@ -42,10 +47,16 @@
             <Button on:click={change} priority='low'>Change</Button>
         {:else}
             <Button on:click={change} priority='low'>Cancel</Button>
-            <Button type='submit' priority='high'>Save</Button>
+            <Button on:click={() => getModal('secureInputModal').open(modalCallback)} priority='high'>Save</Button>
+            <!-- <Button type='submit' priority='high'>Save</Button> -->
         {/if}
     </div>
 </form>
+
+<Modal id='secureInputModal'>
+    <h2>Test Modal</h2>
+    <p>Test modal content</p>
+</Modal>
 
 <style>
     .s-input {
