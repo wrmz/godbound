@@ -1,18 +1,25 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-    import Modal, { getModal } from '$lib/components/Modal.svelte';
+    import Modal from '$lib/components/Modal.svelte';
+    import Form from '$lib/components/Form.svelte';
     import Button from '$lib/components/Button.svelte';
     import Input from '$lib/components/Input.svelte';
+    import { page } from '$app/stores';
 
     const dispatch = createEventDispatcher();
+    let uuid = 'secureModal' + crypto.randomUUID();
     let isDisabled = true;
     let oldValue = '';
+    let password = '';
 
+    export let modal;
     export let error = '';
     export let type = 'text';
     export let label = '';
     export let name = '';
     export let value = '';
+
+    $: isModalOpen = false;
 
     const change = () => {
         isDisabled = !isDisabled;
@@ -24,15 +31,17 @@
         }
     };
 
-    const modalCallback = function (res) {
-        console.log('modal callback:', res);
+    const handleModalClose = async () => {
+        console.log('handling');
+        // isModalOpen = false;
+        change();
+
     };
 
     /** @param {any} event */
     const handleSubmit = async (event) => {
-        let data = await new FormData(event.target);
-        dispatch('submit', { [name]: data.get(name) });
-        change();
+        modal.open();
+        isModalOpen = true;
     };
 </script>
 
@@ -47,15 +56,15 @@
             <Button on:click={change} priority='low'>Change</Button>
         {:else}
             <Button on:click={change} priority='low'>Cancel</Button>
-            <Button on:click={() => getModal('secureInputModal').open(modalCallback)} priority='high'>Save</Button>
-            <!-- <Button type='submit' priority='high'>Save</Button> -->
+            <Button type='submit' priority='high'>Save</Button>
         {/if}
     </div>
 </form>
 
-<Modal id='secureInputModal'>
-    <h2>Test Modal</h2>
-    <p>Test modal content</p>
+<Modal bind:this={modal} on:close={handleModalClose}>
+    <Form name={uuid} method='dialog' title='Are you  %%ReallY%% even {$page.data.user.username}' submit="Tis truly, Knave">
+        <Input type='password' label='Password' name='password' placeholder='Your current password' bind:password={password}/>
+    </Form>
 </Modal>
 
 <style>

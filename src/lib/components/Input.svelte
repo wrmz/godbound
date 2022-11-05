@@ -1,6 +1,6 @@
 <script>
     export let value = '';
-    export let id = '';
+    export let id = undefined;
     export let label = '';
     export let type = 'text';
     export let name = '';
@@ -27,7 +27,7 @@
     <input
         use:setType
         {name}
-        {id}
+        id={id || null}
         {required}
         aria-label={label}
         placeholder="{label}"

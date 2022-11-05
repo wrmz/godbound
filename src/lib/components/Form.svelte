@@ -7,9 +7,10 @@
     export let autocomplete = 'off';
     export let title = '';
     export let submit = 'Submit';
+    export let method = 'POST';
 </script>
 
-<form id={name} {name} {autocomplete} method='POST' class='form'>
+<form id={name} {name} {autocomplete} {method} class='form'>
     {#if title}
         <header class='form__header'>
             <Heading content={title} />
