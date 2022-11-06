@@ -8,6 +8,7 @@
     export let title = '';
     export let submit = 'Submit';
     export let method = 'POST';
+    export let priority = 'medium';
 </script>
 
 <form id={name} {name} {autocomplete} {method} class='form'>
@@ -23,7 +24,7 @@
         <slot></slot>
     </div>
     <footer class='form__footer'>
-        <Button type="submit" priority="medium">{submit}</Button>
+        <Button type="submit" {priority}>{submit}</Button>
     </footer>
 </form>
 

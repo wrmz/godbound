@@ -62,8 +62,21 @@
 </form>
 
 <Modal bind:this={modal} on:close={handleModalClose}>
-    <Form name={uuid} method='dialog' title='Are you  %%ReallY%% even {$page.data.user.username}' submit="Tis truly, Knave">
-        <Input type='password' label='Password' name='password' placeholder='Your current password' bind:password={password}/>
+    <Form
+        name={uuid}
+        method='dialog'
+        title='Are you  %%ReallY%% even {$page.data.user.username}'
+        submit='Tis truly, Knave'
+        priority='low'
+    >
+        <Input
+            type='password'
+            label='Password'
+            name='password'
+            placeholder='Your current password'
+            bind:password={password}
+            autofocus
+        />
     </Form>
 </Modal>
 

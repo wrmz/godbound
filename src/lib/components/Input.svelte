@@ -1,6 +1,7 @@
 <script>
     export let value = '';
     export let id = undefined;
+    export let autofocus = undefined;
     export let label = '';
     export let type = 'text';
     export let name = '';
@@ -28,6 +29,7 @@
         use:setType
         {name}
         id={id || null}
+        autofocus={autofocus || null}
         {required}
         aria-label={label}
         placeholder="{label}"

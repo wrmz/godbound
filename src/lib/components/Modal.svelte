@@ -66,15 +66,13 @@
         z-index: 9999;
         width: 100%;
         height: 100%;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        max-width: none;
+        max-height: none;
+        inset: 0;
+        margin: 0;
         padding: 0;
         border: 0;
-        background: rgba(var(--color-3-rgb), 0.6);
-        /* backdrop-filter: blur(2px); */
-
+        background: transparent;
     }
     .dialog__content {
         display: flex;
@@ -85,57 +83,61 @@
         left: 0;
         align-items: center;
         justify-content: center;
+        background: rgba(var(--color-6-rgb), 0.5);
+        backdrop-filter: blur(4px);
     }
 
     .modal {
         position: relative;
-        padding: 50px;
+        max-width: calc(100% - 40px);
+        max-height: calc(100% - 40px);
         border: 0;
-        border: 1px solid var(--color-1);
-        border-radius: 9px;
-        background: rgba(var(--color-1-rgb), 0.5);
-        backdrop-filter: blur(3px);
-        box-shadow: var(--shadow);
+        border: 1px solid var(--color-3);
+        border-radius: 4px;
     }
     .modal :global(.form) {
         max-width: none;
+        border-radius: 0 0 4px 4px;
+    }
+    .modal :global(.form),
+    .modal :global(.form__footer) {
+        background: var(--color-3);
     }
     .modal :global(.form__header) {
-        background: var(--color-0);
+        background: var(--color-2);
     }
     .modal__header {
-        position: absolute;
         display: grid;
         grid-auto-flow: column dense;
         width: 100%;
+        border-radius: 4px 4px 0 0;
+        background: var(--color-0);
     }
     .modal__close {
-        position: relative;
-        justify-self: flex-end;
-        top: 0;
-        right: -0;
-    }
-
-    /* #close {
-        position: absolute;
-        top: -12px;
-        right: -12px;
-        width: 24px;
-        height: 24px;
         cursor: pointer;
-        fill: #f44;
-        transition: transform 0.3s;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: flex-end;
+        width: 35px;
+        height: 35px;
+        padding: 0;
+        color: white;
+        border: 0;
+        border-radius: 4px;
+        background: transparent;
+        transition: color var(--transition);
     }
-    #close:hover {
-        transform: scale(2);
+    .modal__close:hover {
+        color: var(--color-red);
     }
-    #close line {
-        stroke: #fff;
-        stroke-width: 2;
+    .modal__close:focus:not(:focus-visible) {
+        outline: 0;
     }
-    #modal-content {
-        max-width: calc(100vw - 20px);
-        max-height: calc(100vh - 20px);
-        overflow: auto;
-    } */
+    .modal__close:focus-visible {
+        outline: 0;
+        border: 1px solid rgba(var(--color-6-rgb, 0.5));
+        box-shadow: inset 0 0 0 1px rgba(var(--color-0-rgb), 0.5);
+    }
 </style>
