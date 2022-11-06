@@ -14,9 +14,9 @@
         dispatch('open');
     }
 
-    export function close() {
+    export function close(e) {
         modal.close();
-        dispatch('close');
+        dispatch('close', e);
     }
 
 </script>
@@ -28,7 +28,7 @@
     on:click={close}
 >
     <div class='dialog__content'>
-        <div class='modal'>
+        <div class='modal' on:click|stopPropagation>
             <header class='modal__header'>
                 {#if $$slots.header}
                     <slot name='header'></slot>

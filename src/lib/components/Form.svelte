@@ -1,6 +1,9 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import Button from '$lib/components/Button.svelte';
     import Heading from '$lib/components/Heading.svelte';
+
+    const dispatch = createEventDispatcher();
 
     export let error = '';
     export let name = '';
@@ -9,9 +12,13 @@
     export let submit = 'Submit';
     export let method = 'POST';
     export let priority = 'medium';
+
+    const handleSubmit = function (ev) {
+        dispatch('submit', ev);
+    };
 </script>
 
-<form id={name} {name} {autocomplete} {method} class='form'>
+<form id={name} {name} {autocomplete} {method} class='form' on:submit={handleSubmit}>
     {#if title}
         <header class='form__header'>
             <Heading content={title} />
