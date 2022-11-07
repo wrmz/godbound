@@ -5,10 +5,10 @@
     import Button from '$lib/components/Button.svelte';
     import { page } from '$app/stores';
 
-    export let email = $page.data.user.email;
-    export let password = '••••••••••';
-    export let expose_activity = true;
-    export let errors = {
+    let email = $page.data.user.email;
+    let password = '••••••••••';
+    let expose_activity = true;
+    let errors = {
         email: '',
         password: '',
     };
@@ -28,11 +28,15 @@
 
             if (response.ok) {
                 invalidateAll();
-                email = result.email;
+                if (result.email) {
+                    email = result.email;
+                }
                 errors[field] = '';
             } else {
                 errors[field] = result.message;
             }
+
+            password = '••••••••••';
         };
     }
 </script>
