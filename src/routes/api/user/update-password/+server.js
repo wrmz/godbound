@@ -5,8 +5,6 @@ import { connectToDatabase } from '$lib/server/db';
 export async function POST ({ cookies, request, locals }) {
     const data = await request.json();
 
-    console.log('updating password:', data);
-
     if (!locals?.user?.authenticated || !locals?.user?.email) {
         return new Response(JSON.stringify({
             message: 'Unauthorized'

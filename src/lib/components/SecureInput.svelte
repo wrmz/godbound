@@ -31,7 +31,6 @@
         if (!isDisabled) {
             value = '';
             inputRef.focus();
-            console.log('should be focused...');
         } else {
             value = _originalValue;
         }

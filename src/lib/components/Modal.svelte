@@ -3,7 +3,7 @@
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
-    let modal;
+    let modal = null;
     let visible = false;
 
     export let id = '';
