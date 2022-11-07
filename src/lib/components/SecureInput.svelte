@@ -6,68 +6,67 @@
     import Button from '$lib/components/Button.svelte';
     import Input from '$lib/components/Input.svelte';
 
-
     const dispatch = createEventDispatcher();
+    let inputRef = null;
     let uuid = 'secureModal' + crypto.randomUUID();
     let isDisabled = true;
     let oldValue = '';
-    let password = '';
+    let verifyPassword = '';
 
+    /** @type {any} */
     export let modal;
-    export let error = '';
     export let type = 'text';
     export let label = '';
     export let name = '';
     export let value = '';
+    export let error = '';
 
-    $: isModalOpen = false;
-
-    const change = () => {
+    const toggleEditable = () => {
         isDisabled = !isDisabled;
+        verifyPassword = '';
         if (!isDisabled) {
             oldValue = value;
             value = '';
+            inputRef.focus();
+            console.log('should be focused...');
         } else {
             value = oldValue;
         }
     };
 
-    const handleModalClose = async (e) => {
-        console.log('handling', e);
-        // isModalOpen = false;
-        change();
-
+    const handleModalClose = () => {
+        toggleEditable();
     };
 
-    /** @param {any} event */
-    const handleSubmit = async (event) => {
+    const handleSubmit = () => {
+        verifyPassword = '';
         modal.open();
-        isModalOpen = true;
     };
 
-    const submit = async (event) => {
-
+    const submit = () => {
+        dispatch('submit', { [name]: value });
     };
 
-    const handlePasswordValidation = async (ev) => {
-        const formData = new FormData(ev.detail.target);
+    const handlePasswordValidation = async (event) => {
+        const formData = new FormData(event.detail.target);
         const response = await fetch('/api/user/validate-password', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 email: $page.data.user.email,
-                password: formData.get('password')
+                password: formData.get('verifyPassword')
             })
         });
         const result = await response.json();
 
         if (response.ok) {
+            error = '';
             submit();
         } else {
             error = result.message;
         }
 
-        console.log(response);
+        toggleEditable();
     };
 </script>
 
@@ -77,18 +76,26 @@
     {/if}
     <div class='s-input__container'>
         <label for={name} class='s-input__label'>{label}</label>
-        <Input {type} label='{label}' id={name} name={name} placeholder='Enter a new {label}' bind:value={value} disabled='{isDisabled}' />
+        <Input
+            {type}
+            label='{label}'
+            id={name}
+            name={name}
+            placeholder='Enter a new {label}'
+            bind:this={inputRef}
+            bind:value={value}
+            disabled='{isDisabled}'
+        />
         <div class='s-input__actions'>
             {#if isDisabled}
-                <Button on:click={change} priority='low'>Change</Button>
+                <Button on:click={toggleEditable} priority='low'>Change</Button>
             {:else}
-                <Button on:click={change} priority='low'>Cancel</Button>
+                <Button on:click={toggleEditable} priority='low'>Cancel</Button>
                 <Button type='submit' priority='high'>Save</Button>
             {/if}
         </div>
     </div>
 </form>
-
 <Modal bind:this={modal} on:close={handleModalClose}>
     <Form
         name={uuid}
@@ -100,11 +107,12 @@
     >
         <Input
             type='password'
-            label='Password'
-            name='password'
+            label='Current Password'
+            name='verifyPassword'
             placeholder='Your current password'
-            bind:password={password}
+            bind:verifyPassword={verifyPassword}
             autofocus
+            autocomplete='off'
         />
     </Form>
 </Modal>

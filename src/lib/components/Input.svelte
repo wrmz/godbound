@@ -1,13 +1,16 @@
 <script>
+    import { tick } from 'svelte';
+    let inputRef = null;
     export let value = '';
     export let id = undefined;
     export let autofocus = undefined;
+    export let autocomplete = undefined;
     export let label = '';
+    export let placeholder = '';
     export let type = 'text';
     export let name = '';
     export let required = false;
     export let disabled = false;
-    export let inputRef = null;
     export let isDirty = false;
     export let isEditing = false;
 
@@ -23,6 +26,14 @@
         isEditing = e.type === 'focus';
         isDirty = value.trim().length > 0;
     }
+
+    export async function focus() {
+        await tick();
+        inputRef.focus({
+            focusVisible: TextTrackCueList
+        });
+
+    }
 </script>
 <div class={'field ' + $$props.class}>
     <input
@@ -30,9 +41,10 @@
         {name}
         id={id || null}
         autofocus={autofocus || null}
+        autocomplete={autocomplete || null}
         {required}
         aria-label={label}
-        placeholder="{label}"
+        placeholder="{placeholder || label}"
         bind:value
         bind:this={inputRef}
         {disabled}
