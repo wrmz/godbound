@@ -1,7 +1,7 @@
 import { connectToDatabase } from '$lib/server/db';
 
 /** @type {import('./$types').RequestHandler} */
-export async function POST ({ request, locals }) {
+export async function POST ({ cookies, request, locals }) {
     const dbConnection = await connectToDatabase();
     const db = dbConnection.db;
     const data = await request.json();
@@ -14,11 +14,21 @@ export async function POST ({ request, locals }) {
         });
     }
 
+    const newToken = crypto.randomUUID();
+
     await db.collection('users').updateOne({ email: locals.user.email }, { $set: {
         email: data.email,
-        last_online: new Date(),
+        token: newToken,
         updated_date: new Date(),
     } });
+
+    cookies.set('session_id', newToken, {
+        path: '/',
+        httpOnly: true,
+        sameSite: 'strict',
+        secure: process.env.NODE_ENV === 'production',
+        maxAge: 60 * 60 * 24 * 30,
+    });
 
     return new Response(JSON.stringify(data), {
         status: 200
