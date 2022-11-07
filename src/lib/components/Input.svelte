@@ -94,6 +94,9 @@
 .field__input:focus::placeholder {
     color: var(--color-5);
 }
+.field__input:disabled {
+    cursor: not-allowed;
+}
 .field__input:focus {
     padding-right: calc(50px);
     outline: 0;
