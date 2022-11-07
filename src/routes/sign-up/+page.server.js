@@ -1,6 +1,5 @@
 import { invalid, redirect } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
-import { v4 as uuidv4 } from 'uuid';
 import { connectToDatabase } from '$lib/server/db';
 
 /** @type {import('./$types').PageServerLoad} */
