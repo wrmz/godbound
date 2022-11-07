@@ -10,11 +10,13 @@
     export let isModalOpen = null;
 
     export function open() {
+        document.body.style.overflow = 'hidden';
         modal.showModal();
         dispatch('open');
     }
 
     export function close(e) {
+        document.body.style.overflow = '';
         modal.close();
         dispatch('close', e);
     }
