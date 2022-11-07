@@ -8,8 +8,14 @@
     export let email = $page.data.user.email;
     export let password = '••••••••••';
     export let expose_activity = true;
+    export let errors = {
+        email: '',
+        password: '',
+    };
 
+    /** @param {String} field */
     function submit(field) {
+        /** @param {any} detail */
         return async ({ detail }) => {
             const response = await fetch(`/api/user/update-${field}`, {
                 method: 'POST',
@@ -23,6 +29,9 @@
             if (response.ok) {
                 invalidateAll();
                 email = result.email;
+                errors[field] = '';
+            } else {
+                errors[field] = result.message;
             }
         };
     }
@@ -37,13 +46,16 @@
             label='Email'
             name='email'
             value={email}
+            error={errors.email}
             on:submit={submit('email')}
         />
         <SecureInput
             type='password'
             label='Password'
             name='password'
-            bind:value={password}
+            value={password}
+            error={errors.password}
+            on:submit={submit('password')}
         />
     </div>
     <div class='account__section'>
