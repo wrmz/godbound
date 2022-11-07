@@ -120,7 +120,7 @@
             label='Current Password'
             name='verifyPassword'
             placeholder='Your current password'
-            bind:verifyPassword={verifyPassword}
+            bind:value={verifyPassword}
             autofocus
             autocomplete='off'
         />
