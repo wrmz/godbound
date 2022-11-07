@@ -21,7 +21,7 @@
         position: relative;
         display: grid;
         height: 100%;
-        grid-template-columns: 120px 1fr;
+        grid-template-columns: 140px 1fr;
     }
     .workspace__menu {
         position: sticky;
