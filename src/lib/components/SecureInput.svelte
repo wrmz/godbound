@@ -1,5 +1,5 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher, onMount } from 'svelte';
     import { page } from '$app/stores';
     import Modal from '$lib/components/Modal.svelte';
     import Form from '$lib/components/Form.svelte';
@@ -7,10 +7,10 @@
     import Input from '$lib/components/Input.svelte';
 
     const dispatch = createEventDispatcher();
+    let _originalValue = '';
     let inputRef = null;
     let uuid = 'secureModal' + crypto.randomUUID();
     let isDisabled = true;
-    let oldValue = '';
     let verifyPassword = '';
 
     /** @type {any} */
@@ -21,16 +21,19 @@
     export let value = '';
     export let error = '';
 
+    const handleOnMount = () => {
+        _originalValue = value;
+    };
+
     const toggleEditable = () => {
         isDisabled = !isDisabled;
         verifyPassword = '';
         if (!isDisabled) {
-            oldValue = value;
             value = '';
             inputRef.focus();
             console.log('should be focused...');
         } else {
-            value = oldValue;
+            value = _originalValue;
         }
     };
 
@@ -41,6 +44,10 @@
     const handleSubmit = () => {
         verifyPassword = '';
         modal.open();
+    };
+
+    const handleBlur = () => {
+        toggleEditable();
     };
 
     const submit = () => {
@@ -68,6 +75,8 @@
 
         toggleEditable();
     };
+
+    onMount(handleOnMount);
 </script>
 
 <form class='s-input' on:submit|preventDefault={handleSubmit}>
@@ -84,6 +93,7 @@
             placeholder='Enter a new {label}'
             bind:this={inputRef}
             bind:value={value}
+            on:blur={handleBlur}
             disabled='{isDisabled}'
         />
         <div class='s-input__actions'>

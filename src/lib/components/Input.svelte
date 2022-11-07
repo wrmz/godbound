@@ -1,6 +1,9 @@
 <script>
-    import { tick } from 'svelte';
+    import { tick, createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
     let inputRef = null;
+
     export let value = '';
     export let id = undefined;
     export let autofocus = undefined;
@@ -14,6 +17,8 @@
     export let isDirty = false;
     export let isEditing = false;
 
+
+
     /**
      * @param {Object} node
      * @param {String} node.type
@@ -25,14 +30,15 @@
     function checkIfDirty(e) {
         isEditing = e.type === 'focus';
         isDirty = value.trim().length > 0;
+
+        if (!isEditing && !isDirty) {
+            dispatch('blur');
+        }
     }
 
     export async function focus() {
         await tick();
-        inputRef.focus({
-            focusVisible: TextTrackCueList
-        });
-
+        inputRef.focus({ focusVisible: true });
     }
 </script>
 <div class={'field ' + $$props.class}>
