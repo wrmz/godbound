@@ -1,5 +1,6 @@
 <script>
     import Menu from '$lib/components/Menu.svelte';
+    import Statusbar from '$lib/components/Statusbar.svelte';
     import { page } from '$app/stores';
 
     let user = $page.data.user;
@@ -8,6 +9,7 @@
 <div class='workspace'>
     <div class='workspace__menu'><Menu /></div>
     <div class='workspace__editor'>
+        <Statusbar />
         <div class='editor'>
             <div class='editor__container'>
                 <slot {user} />
@@ -22,6 +24,7 @@
         display: grid;
         height: 100%;
         grid-template-columns: 140px 1fr;
+        background-color: var(--color-0);
     }
     .workspace__menu {
         position: sticky;
@@ -36,7 +39,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: calc(100% - 60px);
         padding: 50px;
     }
 </style>
