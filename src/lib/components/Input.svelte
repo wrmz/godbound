@@ -8,6 +8,7 @@
     export let id = undefined;
     export let autofocus = undefined;
     export let autocomplete = undefined;
+    export let list = undefined;
     export let label = '';
     export let placeholder = '';
     export let type = 'text';
@@ -36,6 +37,10 @@
         }
     }
 
+    function handleInput(event) {
+        dispatch('input', event);
+    }
+
     export async function focus() {
         await tick();
         inputRef.focus({ focusVisible: true });
@@ -46,6 +51,7 @@
         use:setType
         {name}
         id={id || null}
+        list={list || null}
         autofocus={autofocus || null}
         autocomplete={autocomplete || null}
         {required}
@@ -58,6 +64,7 @@
         class:field__input--dirty={isDirty && !isEditing}
         on:focus={checkIfDirty}
         on:blur={checkIfDirty}
+        on:input={handleInput}
     />
 </div>
 <style>
