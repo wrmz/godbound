@@ -53,6 +53,7 @@
         dispatch('submit', { [name]: value });
     };
 
+    /** @param {CustomEvent} event */
     const handlePasswordValidation = async (event) => {
         const formData = new FormData(event.detail.target);
         const response = await fetch('/api/user/validate-password', {
