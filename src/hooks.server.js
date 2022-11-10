@@ -5,34 +5,34 @@ import { connectToDatabase } from '$lib/server/db';
  * @param {Object|null} locals.user
  */
 const destroySession = (locals) => {
-    locals.user = null;
+	locals.user = null;
 };
 
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
-    const token = event.cookies.get('session_id');
-    if (!token) {
-        destroySession(event.locals);
-    } else {
-        const dbConnection = await connectToDatabase();
-        const db = dbConnection.db;
-        const userSession = await db.collection('users').findOne({ token });
+	const token = event.cookies.get('session_id');
+	if (!token) {
+		destroySession(event.locals);
+	} else {
+		const dbConnection = await connectToDatabase();
+		const db = dbConnection.db;
+		const userSession = await db.collection('users').findOne({ token });
 
-        if (userSession) {
-            event.locals.user = {
-                authenticated: true,
-                email: userSession.email,
-                username: userSession.username || ''
-            };
-        } else {
-            destroySession(event.locals);
-        }
-    }
+		if (userSession) {
+			event.locals.user = {
+				authenticated: true,
+				email: userSession.email,
+				username: userSession.username || ''
+			};
+		} else {
+			destroySession(event.locals);
+		}
+	}
 
-    const response = await resolve(event);
+	const response = await resolve(event);
 
-    // Set custom headers
-    response.headers.set('x-custom-header', 'potato');
+	// Set custom headers
+	response.headers.set('x-custom-header', 'potato');
 
-    return response;
+	return response;
 }

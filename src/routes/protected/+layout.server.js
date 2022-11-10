@@ -3,17 +3,16 @@ import { redirect } from '@sveltejs/kit';
 
 /** @type {import('./$types').LayoutServerLoad} */
 export async function load({ locals }) {
+	if (!locals.user?.authenticated) {
+		throw redirect(302, '/sign-in');
+	}
 
-    if (!locals.user?.authenticated) {
-        throw redirect(302, '/sign-in');
-    }
+	const user = {
+		...locals.user,
+		...(await getUser(locals.user.email))
+	};
 
-    const user = {
-        ...locals.user,
-        ...await getUser(locals.user.email)
-    };
-
-    return {
-        user
-    }
+	return {
+		user
+	};
 }

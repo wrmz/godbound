@@ -1,7 +1,7 @@
 <script>
-    import { page } from '$app/stores';
+	import { page } from '$app/stores';
 
-    export let user = $page.data.user;
+	export let user = $page.data.user;
 </script>
 
 <h1>Profile</h1>
