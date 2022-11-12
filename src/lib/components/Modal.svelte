@@ -3,35 +3,57 @@
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
+
+	/** @type {HTMLDialogElement|null} */
 	let modal = null;
 	let visible = false;
 
 	export let id = '';
-	export let isModalOpen = null;
+	export let isModalOpen = false;
+
+	/** @param {KeyboardEvent} e */
+	function handleKeydown(e) {
+		if (e.key === 'Escape' && modal) {
+			modal.close();
+		}
+	}
 
 	export function open() {
 		document.body.style.overflow = 'hidden';
-		modal.showModal();
+		if (modal) {
+			modal.showModal();
+		}
 		dispatch('open');
 	}
 
+	/** @param {MouseEvent} e */
 	export function close(e) {
 		document.body.style.overflow = '';
-		modal.close();
+		if (modal) {
+			modal.close();
+		}
 		dispatch('close', e);
 	}
 </script>
 
-<dialog class="dialog" open={isModalOpen} class:visible bind:this={modal} on:click={close}>
+<dialog
+	id={id || null}
+	class="dialog"
+	open={isModalOpen}
+	class:visible
+	bind:this={modal}
+	on:click={close}
+	on:keydown={handleKeydown}
+>
 	<div class="dialog__content">
-		<div class="modal" on:click|stopPropagation>
+		<div class="modal" on:click|stopPropagation on:keydown|stopPropagation>
 			<header class="modal__header">
 				{#if $$slots.header}
 					<slot name="header" />
 				{/if}
-				<button type="close" class="modal__close" aria-label="Close Modal" on:click={close}
-					><Close /></button
-				>
+				<button type="button" class="modal__close" aria-label="Close Modal" on:click={close}>
+					<Close />
+				</button>
 			</header>
 			<div class="modal__content">
 				<slot />
@@ -40,18 +62,6 @@
 	</div>
 </dialog>
 
-<!-- <div id='topModal' class:visible bind:this={topDiv} on:click={() => close()}>
-    <div id='modal' on:click|stopPropagation={() => {}}>
-        <svg id='close' on:click={() => close()} viewBox='0 0 12 12'>
-            <circle cx='6' cy='6' r='6' />
-            <line x1=3 y1=3 x2=9 y2=9 />
-			<line x1=9 y1=3 x2=3 y2=9 />
-        </svg>
-        <div id='modal-content'>
-            <slot></slot>
-        </div>
-    </div>
-</div> -->
 <style>
 	.dialog {
 		position: fixed;
