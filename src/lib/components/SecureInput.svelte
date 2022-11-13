@@ -7,8 +7,10 @@
 	import Input from '$lib/components/Input.svelte';
 
 	const dispatch = createEventDispatcher();
+
+	/** @type Input */
+	let inputRef;
 	let _originalValue = '';
-	let inputRef = null;
 	let uuid = 'secureModal' + crypto.randomUUID();
 	let isDisabled = true;
 	let verifyPassword = '';
@@ -121,7 +123,6 @@
 			name="verifyPassword"
 			placeholder="Your current password"
 			bind:value={verifyPassword}
-			autofocus
 			autocomplete="off"
 		/>
 	</Form>

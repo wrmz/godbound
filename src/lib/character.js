@@ -34,12 +34,14 @@ class Character {
     };
 
     /**
-     * @param {string} godboundName
-     * @param {string} [name='']
+     * @param {object} user
+     * @param {object} data
+     * @param {string} data.godboundName
+     * @param {string} data.name
      */
-    constructor(godboundName, name = '') {
+    constructor(user, data) {
         this.#id = crypto.randomUUID();
-        this.godboundName = godboundName;
+        this.godboundName = data.godboundName;
         this.name = name;
     }
 
@@ -110,12 +112,14 @@ class Character {
 
 /**
  * Creates a character
- * @param {string} godboundName
- * @param {string} [name='']
+ * @param {object} user
+ * @param {object} data
+ * @param {string} data.godboundName
+ * @param {string} data.name
  * @returns {Promise<Character>}
  */
-export async function createCharacter(godboundName, name = '') {
-    const character = new Character(godboundName, name);
+export async function createCharacter(user, data) {
+    const character = new Character(user, data);
 
     await character.save();
 

@@ -12,13 +12,21 @@
 	export let submit = 'Submit';
 	export let method = 'POST';
 	export let priority = 'medium';
+	export let preventDefault = false;
 
-	const handleSubmit = function (ev) {
-		dispatch('submit', ev);
+	/**
+	 * @param {SubmitEvent} e
+	*/
+	const handleSubmit = function (e) {
+		if (preventDefault) {
+			e.preventDefault();
+		}
+
+		dispatch('submit', e);
 	};
 </script>
 
-<form id={name} {name} {autocomplete} {method} class="form" on:submit={handleSubmit}>
+<form id={name} {name} {autocomplete} {method} class="form" on:submit|trusted={handleSubmit}>
 	{#if title}
 		<header class="form__header">
 			<Heading content={title} />

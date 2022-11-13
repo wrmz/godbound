@@ -2,13 +2,14 @@
 	import { tick, createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
-	let inputRef = null;
 
+	/** @type {HTMLInputElement} */
+	let inputRef;
+
+	export let id = '';
+	export let autocomplete = '';
+	export let list = '';
 	export let value = '';
-	export let id = undefined;
-	export let autofocus = undefined;
-	export let autocomplete = undefined;
-	export let list = undefined;
 	export let label = '';
 	export let placeholder = '';
 	export let type = 'text';
@@ -26,6 +27,7 @@
 		node.type = type;
 	}
 
+	/** @param {Event} e*/
 	function checkIfDirty(e) {
 		isEditing = e.type === 'focus';
 		isDirty = value.trim().length > 0;
@@ -35,13 +37,17 @@
 		}
 	}
 
-	function handleInput(event) {
-		dispatch('input', event);
+	/** @param {Event} e*/
+	function handleInput(e) {
+		dispatch('input', e);
 	}
 
 	export async function focus() {
 		await tick();
-		inputRef.focus({ focusVisible: true });
+		if (inputRef) {
+			// @ts-ignore
+			inputRef.focus({ focusVisible: true });
+		}
 	}
 </script>
 
@@ -51,7 +57,6 @@
 		{name}
 		id={id || null}
 		list={list || null}
-		autofocus={autofocus || null}
 		autocomplete={autocomplete || null}
 		{required}
 		aria-label={label}
